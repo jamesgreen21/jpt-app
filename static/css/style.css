@@ -1,0 +1,558 @@
+/*font-family: 'Sriracha', cursive;*/
+
+/*font-family: 'Raleway', sans-serif;*/
+
+/*font-family: 'Open Sans', sans-serif;*/
+
+/* --------------------------------- App settings -------------------------------- */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a {
+    font-family: 'Raleway', sans-serif;
+}
+
+p {
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+}
+
+.join-img-jpt {
+    background: url("/static/img/joeparispt_mainpic1.jpg") 50% 0 no-repeat;
+    background-size: cover;
+}
+
+.login-img-jpt {
+    background: url("/static/img/joeparispt_mainpic2.jpg") 50% 0 no-repeat;
+    background-size: cover;
+}
+
+.profile-img-jpt {
+    background: url("/static/img/joeparispt_mainpic3.jpg") 50% 0 no-repeat;
+    background-size: cover;
+}
+
+.blog-img-jpt {
+    background: url("/static/img/joeparispt_mainpic4.jpg") 50% 0 no-repeat;
+    background-size: cover;
+}
+
+
+/* ---------------------------- JPT Background Colours ---------------------------- */
+
+.bg-jpt-darkblue {
+    background-color: #00213b;
+}
+
+.bg-jpt-black {
+    background-color: #111111;
+}
+
+.bg-jpt-grey {
+    background-color: #333333;
+}
+
+.bg-jpt-teal {
+    background-color: #008080;
+}
+
+.bg-jpt-white {
+    background-color: #fafafa;
+}
+
+.bg-jpt-darkimage {
+    background-color: rgba(48, 48, 48, 0.8);
+}
+
+.bg-jpt-red {
+    background-color: #de0000;
+}
+
+
+/* -------------------------- JPT Text Colours --------------------------------- */
+
+.text-jpt-darkblue {
+    color: #00213b;
+}
+
+.text-jpt-black {
+    color: #222222;
+}
+
+.text-jpt-grey {
+    color: #333333;
+}
+
+.text-jpt-teal {
+    color: #008080;
+}
+
+.text-jpt-white {
+    color: #fafafa;
+}
+
+.text-jpt-blue {
+    color: #0060b0;
+}
+
+.text-jpt-red {
+    color: #de0000;
+}
+
+
+/* ------------------------------------- Navbar -------------------------------------- */
+
+.nav-primary-jpt {
+    width: 100%;
+    z-index: 1;
+    position: fixed;
+    top: 0px;
+    transition: top 0.3s;
+    min-height: 90px;
+}
+
+.navbar-brand {
+    font-family: Open sans;
+    font-size: 25px;
+}
+
+.navbar-brand:hover {
+    color: #fafafa;
+}
+
+.nav-primary-link {
+    margin-left: auto;
+}
+
+.nav-secondary-jpt {
+    top: 90px;
+    transition: top 0.3s;
+    min-height: 60px;
+    -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.75);
+}
+
+.nav-secondary-jpt li {
+    align-self: center;
+}
+
+.nav-secondary-jpt a {
+    color: #fafafa;
+    font-weight: 700;
+}
+
+.nav-secondary-jpt a {
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+}
+
+.nav-secondary-jpt a:hover {
+    text-decoration: underline;
+}
+
+.jpt-page-content {
+    margin-top: 90px;
+}
+
+/* -------------------------- Landing Page - Top Section ----------------------------- */
+
+.headline-img-jpt {
+    background: url("/static/img/joeparispt_mainpage.png") 50% 0 no-repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+}
+
+.jpt-logo-primary {
+    font-size: 80px;
+}
+
+.jpt-logo-secondary {
+    font-size: 35px;
+    margin-top: -20px;
+}
+
+.jpt-carousel {
+    -webkit-box-shadow: 0px 0px 5px 5px rgba(17, 17, 17, 1);
+    -moz-box-shadow: 0px 0px 5px 5px rgba(17, 17, 17, 1);
+    box-shadow: 0px 0px 5px 5px rgba(17, 17, 17, 1);
+    border-radius: 5px;
+}
+
+.headline-content {
+    padding-bottom: 20px;
+}
+
+.circle-container {
+    height: 400px;
+}
+
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(17, 17, 17, 1);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(17, 17, 17, 1);
+    box-shadow: 0px 0px 5px 0px rgba(17, 17, 17, 1);
+}
+
+.circle-vanish {
+    animation: circle-vanish .5s ease;
+}
+
+@keyframes circle-vanish {
+    to {
+        transform: scale(0);
+    }
+}
+
+.circle-appear {
+    animation: circle-appear .5s ease;
+}
+
+@keyframes circle-appear {
+    to {
+        transform: scale(1);
+    }
+}
+
+.circle-none {
+    display: none;
+}
+
+.circle-sm {
+    height: 13%;
+    width: 13%;
+    top: 5%;
+    right: 5%;
+}
+
+.circle-md {
+    height: 20%;
+    width: 20%;
+    top: 20%;
+    right: 20%;
+}
+
+.circle-lg {
+    height: 25%;
+    width: 25%;
+    top: 45%;
+    right: 0%;
+}
+
+.circle-xl {
+    height: 30%;
+    width: 30%;
+    top: 70%;
+    right: 25%;
+}
+
+.jpt-promo-primary {
+    padding: 20px;
+    align-items: center;
+}
+
+.jpt-promo-primary a {
+    margin-left: 10px;
+    padding: 15px;
+    border-radius: 35px;
+    font-size: 20px;
+    font-weight: 500;
+    color: #fafafa;
+    transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
+}
+
+.jpt-promo-primary a:hover {
+    background: #fafafa;
+    color: #008080;
+}
+
+.jpt-promo-heading {
+    text-align: center;
+}
+
+.jpt-promo-heading h2 {
+    display: inline-block;
+    line-height: 1em;
+    font-size: 1.5em;
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+}
+
+
+/* --------------------------- Landing Page - Middle Section ------------------------- */
+
+.jpt-banner {
+    line-height: 1em;
+    font-size: 1.5em;
+    font-weight: 200;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.jpt-logo-text {
+    font-family: Open sans;
+    font-size: 1.2em;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.jpt-section-headlines {
+    height: 95vh;
+}
+
+.jpt-section-headlines h6 {
+    font-size: 2em;
+    line-height: 4.2em;
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+}
+
+/*----- Animations -----*/
+
+.come-in {
+    transform: translateY(100px);
+    animation: come-in 1.8s ease forwards;
+}
+
+.come-in:nth-child(odd) {
+    animation-duration: 1s;
+}
+
+@keyframes come-in {
+    to {
+        transform: translateY(0);
+    }
+}
+
+.jpt-img-one {
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/3/38/Two_people_in_a_gym_using_BOSU_balls.jpg");
+}
+
+.jpt-bio-container {
+    height: 95vh;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.jpt-bio-content {
+    padding-top: 100px;
+}
+
+.jpt-bio-img {
+    height: 600px;
+    background: url("static/img/jpt-bio-pic1.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.jpt-img-two {
+    background-image: url("https://images2.minutemediacdn.com/image/upload/c_crop,h_1192,w_2119,x_0,y_0/f_auto,q_auto,w_1100/v1554734334/shape/mentalfloss/568122-istock-869062004.jpg");
+}
+
+.parallax {
+    height: 95vh;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.jpt-section1-img {
+    height: 100px;
+    width: 100px;
+    border: solid #fafafa 3px;
+}
+
+.jpt-section-img {
+    display: table-cell;
+    height: 95vh;
+    width: 100vw;
+    vertical-align: middle;
+}
+
+
+.bliss-bio {
+    padding: 20px;
+}
+
+.bliss-bio-img img {
+    height: 500px;
+    width: 500px;
+    object-fit: cover;
+    text-align: right;
+}
+
+.bliss-bio-heading {
+    font-weight: 600;
+    text-shadow: 4px 4px 5px rgba(102, 102, 102, 1);
+}
+
+.bliss-bio-text {
+    font-weight: 500;
+    text-shadow: 2px 2px 3px rgba(102, 102, 102, 1);
+}
+
+
+/*------------ Landing Page - Testimonial Section, WhatsApp inspired ---------------*/
+
+#whatsapp-nav {
+    padding: 10px;
+}
+
+#whatsapp-nav p,
+#whatsapp-nav i {
+    font-size: 30px;
+}
+
+#whatsapp-back-icon {
+    font-size: 45px !important;
+}
+
+#whatsapp-user-icon {
+    font-size: 50px !important;
+}
+
+#whatsapp-chat {}
+
+.speech-bubble {
+    margin-top: 20px;
+    position: relative;
+    background: #fafafa;
+    border-radius: .4em;
+}
+
+.speech-bubble:after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border: 52px solid transparent;
+    border-left-color: #fafafa;
+    border-right: 0;
+    border-top: 0;
+    margin-top: -26px;
+    margin-right: -52px;
+}
+
+.speech-bubble h6,
+.speech-bubble p {
+    padding: 10px;
+}
+
+/*-------------------------------- User Pages -------------------------------------*/
+
+.jpt-login-section {
+    min-height: 500px;
+}
+
+.jpt-login-section a {
+    color: #fafafa;
+}
+
+.text-muted {
+    color: #fafafa !important;
+}
+
+.form-control:hover,
+.form-control:focus {
+    border-top-color: #111111;
+    border-right-color: #111111;
+    border-bottom-color: #111111;
+    border-left-color: #111111;
+}
+
+.jpt-profile-img {
+    height: 200px;
+    width: 200px;
+    object-fit: cover;
+    border: 3px solid #fad4e6;
+}
+
+.user-container {
+    border: 3px solid #fad4e6;
+    border-radius: 25px;
+}
+
+
+/*----------------------------------- Blog -------------------------------------*/
+
+.jpt-img-blog {
+    background-image: url("/static/img/joeparispt_mainpic2.jpg");
+}
+
+.jpt-blog-container {
+    text-align: center;
+}
+
+.jpt-blog-container a:hover {
+    color: #fafafa;
+}
+
+.jpt-blog-link {
+    height: 200px;
+    width: 250px;
+}
+
+.jpt-blog-link img {
+    height: 100%;
+    background-size: cover;
+    object-fit: cover;
+}
+
+.jpt-blog-title {
+    display: inline-block;
+    line-height: 1em;
+    font-size: 1.5em;
+    font-weight: 200;
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    transition: all 0.2s ease-in-out;
+}
+
+.jpt-blog-title:hover {
+    transform: translate(0px, -3px);
+    border-bottom: solid 1px #fafafa;
+}
+
+.jpt-admin-panel {
+    margin: 20px;
+    padding: 10px;
+}
+
+
+/*----------------------------------- Footer -------------------------------------*/
+
+.jpt-footer {
+    padding-top: 20px;
+    min-height: 300px;
+}
+
+.jpt-social-icons a i {
+    font-size: 50px;
+}
+
+.jpt-link,
+.jpt-link:hover {
+    color: #fafafa;
+}

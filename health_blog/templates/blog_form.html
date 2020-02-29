@@ -1,0 +1,29 @@
+{% extends "base.html" %} {% load bootstrap_tags %} {% block content %}
+
+<div class="blog-img-jpt">
+    <div class="row bg-jpt-darkimage">
+        <div class="col-11 text-right">
+            <h2 class="jpt-logo-primary text-jpt-white">Joseph Paris</h2>
+            <h3 class="jpt-logo-secondary text-jpt-red">Personal Trainer</h3>
+        </div>
+    </div>
+
+    <div class="row bg-jpt-darkimage">
+        <div class="col-10 offset-1 col-md-5">
+            <div class="jumbotron bg-jpt-black text-jpt-white">
+                <h4 class="branded-title">Add Blog</h4>
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    {{ form | as_bootstrap }}
+                    <br>
+                    <div class="center">
+                        <a class="btn btn-danger" href="{% url 'jpt-blogs' %}" role="button">Cancel</a>
+                        <button class="btn btn-dark" type="submit" name="action">Save</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

@@ -1,0 +1,1 @@
+web: gunicorn jpt_app.wsgi:application
