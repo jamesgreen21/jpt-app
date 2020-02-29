@@ -14,7 +14,7 @@
     {% for blog in blogs %}
     <div class="col-6 col-md-4 jpt-blog-container">
         <div class="card mx-auto jpt-blog-link">
-            <img class="card-img-top" src="{{ blog.image.url }}" alt="{{ blog.image }">
+            <img class="card-img-top" src="{{ blog.image.url }}" alt="{{ blog.image.url }">
         </div>
         <a class="text-jpt-white" href="{% url 'view-blog' blog.id %}"><h4 class="py-4 jpt-blog-title">{{ blog.title }}</h4></a>
         {% if request.user.is_superuser %}
