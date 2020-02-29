@@ -1,0 +1,6 @@
+.c9/
+__pycache__
+*.pyc
+.~c9/
+venv/
+db.sqlite3
