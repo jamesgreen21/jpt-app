@@ -11,6 +11,6 @@ urlpatterns = [
     path('', get_blogs, name='jpt-blogs'),
     path('<int:pk>/', blog_detail, name='view-blog'),
     path('new/', create_or_edit_blog, name='new-blog'),
-    path('<int:pk>/edit/', create_or_edit_blog, name='edit-blog'),
-    path('<int:pk>/delete/', delete_blog, name='delete-blog'),
+    path('edit/<int:pk>/', create_or_edit_blog, name='edit-blog'),
+    path('delete/<int:pk>/', delete_blog, name='delete-blog'),
 ]

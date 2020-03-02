@@ -5,7 +5,7 @@
     <div class="row bg-jpt-darkimage">
         <div class="col-11 text-right">
             <h2 class="jpt-logo-primary text-jpt-white">
-                <large class="jpt-logo-text">JPT</large> Joseph Paris</h2>
+                <large class="jpt-logo-text">JPT</large> James Green</h2>
             <h3 class="jpt-logo-secondary text-jpt-red">Personal Trainer</h3>
         </div>
     </div>
@@ -61,5 +61,142 @@
     </div>
 </div>
 
+<!--JPT Promo Banner-->
+{% if user.is_authenticated %}
+<a href="{% url 'user-register' %}">
+    <div class="row bg-jpt-teal text-jpt-white jpt-promo-primary">
+        <div class="col-12">
+            <div class="jpt-promo-heading">
+                <h2 class="jpt-promo">Book a session today!</h2>
+            </div>
+        </div>
+    </div>
+</a>
+{% else %}
+<a href="{% url 'user-register' %}">
+    <div class="row bg-jpt-teal text-jpt-white jpt-promo-primary">
+        <div class="col-12">
+            <div class="jpt-promo-heading">
+                <h2 class="jpt-promo">Sign up today!</h2>
+            </div>
+        </div>
+    </div>
+</a>
+{% endif %}
+
+<!--JPT Banner-->
+<div class="bg-jpt-black text-jpt-white">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="jpt-banner">James Green
+                <large class="jpt-logo-text">JPT</large> <small class="text-jpt-red">Personal Trainer</small></h2>
+        </div>
+    </div>
+</div>
+
+<!--Benefits & Image Section-->
+<div class="parallax jpt-img-one">
+    <div class="text-center text-jpt-white bg-jpt-darkimage jpt-section-headlines">
+        <h6 class="jpt-text">high energy and motivation</h6>
+        <h6 class="jpt-text">home visits</h6>
+        <h6 class="jpt-text">meal plans and diaritory correction</h6>
+        <h6 class="jpt-text">exptert nutritonal advice</h6>
+    </div>
+</div>
+
+<!--JPT Promo2 Banner-->
+<a href="{% url 'jpt-blogs' %}">
+    <div class="row bg-jpt-teal text-jpt-white jpt-promo-primary">
+        <div class="col-12">
+            <div class="jpt-promo-heading">
+                <h2 class="jpt-promo">healthy blogs here!</h2>
+            </div>
+        </div>
+    </div>
+</a>
+
+<!--JPT Banner-->
+<div class="bg-jpt-black text-jpt-white">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="jpt-banner">James Green
+                <large class="jpt-logo-text">JPT</large> <small class="text-jpt-red">Personal Trainer</small></h2>
+        </div>
+    </div>
+</div>
+
+<!--Bio Image-->
+<div class="parallax jpt-img-two">
+    <div class="text-center text-jpt-white bg-jpt-darkimage jpt-section-img">
+        <img class="rounded-circle jpt-section1-img" src="{% static 'img/joeparispt_biopic.jpg' %}" alt="Image not found">
+        <h3 class="">James Green</h3>
+        <h6 class="text-jpt-red">Personal Trainer</h6>
+    </div>
+</div>
+
+<!--Bio Banner-->
+<div class="bg-jpt-black text-jpt-white">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="jpt-banner">Meet Joe</h2>
+        </div>
+    </div>
+</div>
+
+<!--Bio Section-->
+<div class="bg-jpt-black text-jpt-white jpt-bio-container">
+    <div class="row">
+        <div class="col-4 offset-1 jpt-bio-img"></div>
+        <div class="offset-1 col-5 jpt-bio-content">
+            <p class="py-2">Hi everyone, my name is James Green and I have been <span class="text-jpt-red">Personal Training for 10 years</span> now and have a wealth of experience and knowledge</h5>
+                <p class="py-2">I combine my boxing and conditioning knowledge with weight and strength training to give you a great blend and range of exercise plans to combat any goal.</p>
+                <p class="py-2">I have <span class="text-jpt-red">6 years training and competing as an Amateur Boxing</span> during my teens and early twenties, where I built my conditioning knowledge. During this time I was also competing on track and distance running,
+                    often running 1,500, 3k and 5k at club level. I then went on to run in two half marathons, so know what is required for distance running.</p>
+                <p class="py-2">In my late twenties I turned to body building, comprising of 8 years strength and weight training, finally competing in physique competitions during 2016.</p>
+                <p class="py-2">I am happy to train in any location and have the knowledge and materials required to adapt to home or studio sessions. <span class="text-jpt-red">Lets get stared!</span></p>
+        </div>
+    </div>
+</div>
+
+<!--JPT Promo3 Banner-->
+<a href="{% url 'user-register' %}">
+    <div class="row bg-jpt-teal text-jpt-white jpt-promo-primary">
+        <div class="col-12">
+            <div class="jpt-promo-heading">
+                <h2 class="jpt-promo">Book a session today!</h2>
+            </div>
+        </div>
+    </div>
+</a>
+
+<!--JPT Banner-->
+<div class="bg-jpt-black text-jpt-white">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="jpt-banner">James Green
+                <large class="jpt-logo-text">JPT</large> <small class="text-jpt-red">Personal Trainer</small></h2>
+        </div>
+    </div>
+</div>
+
+<!--Testimonials Banner-->
+<div class="bg-jpt-grey text-jpt-white">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="jpt-banner">Testimonials</h2>
+        </div>
+    </div>
+</div>
+
+<!--Testimonials Section-->
+<div class="row bg-jpt-grey text-jpt-white py-4">
+    <div class="col-10 offset-1">
+        {% for feedback in user_feedback %}
+        <h6>{{ feedback.name }}</h6>
+        <p>{{ feedback.comments }}</p>
+        <hr class="my-4 border-white">
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock content %}

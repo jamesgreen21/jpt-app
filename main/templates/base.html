@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -13,12 +12,10 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Sriracha&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
-
-    {% if title %}
-        <title>JPT - {{ title }}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" /> {% if title %}
+    <title>JPT - {{ title }}</title>
     {% else %}
-        <title>JPT</title>
+    <title>JPT</title>
     {% endif %}
 </head>
 
@@ -26,25 +23,28 @@
 
     <!--Navbar - Primary-->
     <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-jpt-black nav-primary-jpt">
-        <a class="navbar-brand" href="#">JPT</a>
+        <a class="navbar-brand" href="{% url 'home' %}">JPT</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse text-right" id="navbarSupportedContent">
             <ul class="navbar-nav nav-primary-link">
+                {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Profile{% if nbar == 'profile' %} <span class="sr-only">(current)</span>{% endif %}</a>
+                    <a class="nav-link" href="{% url 'user-profile' %}">Profile{% if nbar == 'profile' %} <span class="sr-only">(current)</span>{% endif %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Logout{% if nbar == 'logout' %} <span class="sr-only">(current)</span>{% endif %}</a>
+                    <a class="nav-link" href="{% url 'user-logout' %}">Logout{% if nbar == 'logout' %} <span class="sr-only">(current)</span>{% endif %}</a>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'user-login' %}">Login{% if nbar == 'login' %} <span class="sr-only">(current)</span>{% endif %}</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Login{% if nbar == 'login' %} <span class="sr-only">(current)</span>{% endif %}</a>
+                    <a class="nav-link" href="{% url 'user-register' %}">Register{% if nbar == 'register' %} <span class="sr-only">(current)</span>{% endif %}</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Register{% if nbar == 'register' %} <span class="sr-only">(current)</span>{% endif %}</a>
-                </li>
+                {% endif %}
             </ul>
         </div>
     </nav>
@@ -74,8 +74,8 @@
         {% for message in messages %}
         <li{% if message.tags %} class="{{ message.tags }}" {% endif %}>
             {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %} {{ message }}
-        </li>
-        {% endfor %}
+            </li>
+            {% endfor %}
     </ul>
     {% endif %}
 
@@ -87,7 +87,8 @@
     <!--Footer-->
     <div class="container-fluid">
         <!--JPT Promo Banner-->
-        <a href="#">
+        {% if user.is_authenticated %}
+        <a href="{% url 'user-register' %}">
             <div class="row bg-jpt-teal text-jpt-white jpt-promo-primary">
                 <div class="col-12">
                     <div class="jpt-promo-heading">
@@ -96,7 +97,8 @@
                 </div>
             </div>
         </a>
-        <a href="#">
+        {% else %}
+        <a href="{% url 'user-register' %}">
             <div class="row bg-jpt-teal text-jpt-white jpt-promo-primary">
                 <div class="col-12">
                     <div class="jpt-promo-heading">
@@ -105,13 +107,14 @@
                 </div>
             </div>
         </a>
+        {% endif %}
         <div class="row bg-jpt-black text-jpt-white jpt-footer">
             <div class="col-12 col-md-5 offset-md-1">
                 <h3 class="pt-4">Joseph Paris</h3>
                 <h6 class="text-jpt-red">Personal Trainer</h6>
                 <hr class="my-4">
                 <p class="py-2">Experienced Personal Trainer, combining weight training, boxing and conditioning work into getting the results you want!</p>
-                <a class="jpt-link" href="#">
+                <a class="jpt-link" href="{% url 'user-register' %}">
                     <p>Get started today!</p>
                 </a>
             </div>

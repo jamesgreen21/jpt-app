@@ -1,0 +1,21 @@
+{% extends "base.html" %} {% block content %}
+
+<div class="login-img-jpt">
+    <div class="row bg-jpt-darkimage">
+        <div class="col-11 text-right">
+            <h2 class="jpt-logo-primary text-jpt-white">James Green</h2>
+            <h3 class="jpt-logo-secondary text-jpt-red">Personal Trainer</h3>
+        </div>
+    </div>
+
+    <div class="row bg-jpt-darkimage text-jpt-white jpt-login-section">
+        <div class="col s12">
+            <h2>You have been logged out</h2>
+            <div class="border-top pt-3">
+                <a href="{% url 'user-login' %}">Log Back In</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
