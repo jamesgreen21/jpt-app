@@ -9,26 +9,16 @@
 </div>
 
 <div class="row pt-4 bg-jpt-black text-jpt-white">
+    {% for blog in blogs %}
     <div class="col-12 col-md-4 jpt-blog-link">
         <div class="card jpt-img-container">
-            <div class="jpt-img-tile" style="background-image: url({% static 'img/jpt-pressup.jpg' %})"></div>
+            <div class="jpt-img-tile" style="background-image: url({{ blog.image.url }})"></div>
         </div>
-        <h4>Press Ups</h4>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-        </p>
+        <h4>{{ blog.title }}</h4>
+        <p>{{ blog.headline }}</p>
         <a class="text-jpt-red" href="/">SEE MORE</a>
     </div>
-    <div class="col-12 col-md-4 jpt-blog-link">
-        <div class="card jpt-img-container">
-            <div class="jpt-img-tile" style="background-image: url({% static 'img/jpt-meal-prep.jpg' %})"></div>
-        </div>
-        <h4>Nutritional No No’s</h4>
-        <p>
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-        </p>
-        <a class="text-jpt-red" href="/">SEE MORE</a>
-    </div>
+    {% endfor %}
     <div class="col-12 col-md-4 jpt-blog-link">
         <div class="card jpt-img-container">
             <div class="jpt-img-tile" style="background-image: url({% static 'img/jpt-squat.jpg' %})"></div>
