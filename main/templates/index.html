@@ -5,12 +5,13 @@
     <div class="row bg-jpt-darkimage">
         <div class="col-11 text-right">
             <h2 class="jpt-logo-primary text-jpt-white">
-                <large class="jpt-logo-text">JPT</large> James Green</h2>
+                <large class="jpt-logo-text">JPT</large> James Green
+            </h2>
             <h3 class="jpt-logo-secondary text-jpt-red">Personal Trainer</h3>
         </div>
     </div>
 
-    <div class="row bg-jpt-darkimage headline-content">
+    <div class="row bg-jpt-darkimage pb-5">
         <div class="col-5 offset-1">
             <!--Advert Carousel-->
             <div id="carouselExampleIndicators" class="carousel slide jpt-carousel" data-ride="carousel">
@@ -21,24 +22,27 @@
                 </ol>
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img class="d-block w-100" src="{% static 'img/joeparispt_mainpic2.jpg' %}" alt="First slide">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>join now..</h5>
-                            <p>..and get your personalised plan!</p>
+                        <img class="d-block w-100" src="{% static 'img/jpt-squat-training.jpg' %}" alt="First slide">
+                        <div class="carousel-caption d-none d-md-block bg-jpt-gradient">
+                            <h4>Join Now!</h4>
+                            <p>Take advantage of James Green's knowledge for just £1 per month!</p>
+                            <a class="text-jpt-red" href="{% url 'user-register' %}">SEE MORE</a>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="{% static 'img/joeparispt_mainpic3.jpg' %}" alt="Second slide">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>diet plan</h5>
-                            <p>get a bespoke diet plan for you</p>
+                        <img class="d-block w-100" src="{% static 'img/jpt-meal-prep.jpg' %}" alt="Second slide">
+                        <div class="carousel-caption d-none d-md-block bg-jpt-gradient">
+                            <h5>Meal Prepping & More</h5>
+                            <p>See James' latest Healthy Blog post on nutritonal no no's and other Blogs</p>
+                            <a class="text-jpt-red" href="{% url 'jpt-blogs' %}">SEE MORE</a>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img class="d-block w-100" src="{% static 'img/joeparispt_mainpic4.jpg' %}" alt="Third slide">
-                        <div class="carousel-caption d-none d-md-block">
-                            <h5>helping you every step of the way</h5>
-                            <p></p>
+                        <img class="d-block w-100" src="{% static 'img/jpt-pressup.jpg' %}" alt="Third slide">
+                        <div class="carousel-caption d-none d-md-block bg-jpt-gradient">
+                            <h5>Healthy Blog</h5>
+                            <p>Have a look at James's other posts (membership required)</p>
+                            <a class="text-jpt-red" href="/">SEE MORE</a>
                         </div>
                     </div>
                 </div>
@@ -128,7 +132,7 @@
 <!--Bio Image-->
 <div class="parallax jpt-img-two">
     <div class="text-center text-jpt-white bg-jpt-darkimage jpt-section-img">
-        <img class="rounded-circle jpt-section1-img" src="{% static 'img/joeparispt_biopic.jpg' %}" alt="Image not found">
+        <img class="rounded-circle jpt-section1-img" src="{% static 'img/jpi-bio-pic.jpg' %}" alt="Image not found">
         <h3 class="">James Green</h3>
         <h6 class="text-jpt-red">Personal Trainer</h6>
     </div>
@@ -138,7 +142,7 @@
 <div class="bg-jpt-black text-jpt-white">
     <div class="row">
         <div class="col-12">
-            <h2 class="jpt-banner">Meet Joe</h2>
+            <h2 class="jpt-banner">Meet James</h2>
         </div>
     </div>
 </div>
@@ -179,22 +183,18 @@
     </div>
 </div>
 
-<!--Testimonials Banner-->
-<div class="bg-jpt-grey text-jpt-white">
-    <div class="row">
-        <div class="col-12">
-            <h2 class="jpt-banner">Testimonials</h2>
-        </div>
-    </div>
-</div>
-
 <!--Testimonials Section-->
-<div class="row bg-jpt-grey text-jpt-white py-4">
-    <div class="col-10 offset-1">
+<div class="parallax jpt-img-two">
+    <div class="text-jpt-white bg-jpt-darkimage jpt-testimonial">
+        <div class="speech-bubble">
+            <h4 class="text-jpt-red">Testimonials</h4>
+            <p>Hear what the trainees had to say about James...</p>
+        </div>
         {% for feedback in user_feedback %}
-        <h6>{{ feedback.name }}</h6>
-        <p>{{ feedback.comments }}</p>
-        <hr class="my-4 border-white">
+        <div class="speech-bubble">
+            <h6 class="text-jpt-red">{{ feedback.name }}</h6>
+            <p>{{ feedback.comments }}</p>
+        </div>
         {% endfor %}
     </div>
 </div>

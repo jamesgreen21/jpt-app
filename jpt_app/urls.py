@@ -26,11 +26,13 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main_views.index, name='home'),
     path('about/', main_views.about, name='about'),
-    path('health-and-wellbeing-blog/', include('health_blog.urls')),
     path('register/', accounts_views.register, name='user-register'),
     path('profile/', accounts_views.profile, name='user-profile'),
     path('login/', auth_views.LoginView.as_view(template_name='login.html'), name='user-login'),
     path('logout/', auth_views.LogoutView.as_view(template_name='logout.html'), name='user-logout'),
+    path('health-and-wellbeing-blog/', include('health_blog.urls')),
+    path('products/', include('products.urls')),
+    path('cart/', include('cart.urls')),
 ]
 
 

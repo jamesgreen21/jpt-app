@@ -1,0 +1,17 @@
+{% extends "base.html" %} {% load bootstrap_tags %} {% block content %}
+
+<div class="parallax" style="background-image: url({% static 'img/jpt-pressup.jpg' %})"></div>
+
+<div class="row bg-jpt-black">
+    <div class="col-10 offset-1 col-md-8 offset-md-2">
+        <div class="jumbotron bg-jpt-black text-jpt-white text-center">
+            <img class="card-img-top" src="{{ blog.image.url }}" alt="{{ blog.image }}">
+            <h4 class="branded-title">{{ blog.title }}</h4>
+            <h6 class="py-2 text-jpt-red">{{ blog.created_date }}</h6>
+            <p class="py-2">{{ blog.headline }}</p>
+            <p class="py-2">{{ blog.content }}</p>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

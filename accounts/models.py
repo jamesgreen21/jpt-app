@@ -16,7 +16,11 @@ class Profile(models.Model):
         default='profile_pics/default.jpg',
         upload_to='profile_pics'
     )
-    gender = models.CharField(max_length=30, choices=GENDER_CHOICE, default='Unknown')
+    gender = models.CharField(
+        max_length=30,
+        choices=GENDER_CHOICE,
+        default='Unknown'
+    )
     address1 = models.CharField("Address line 1", max_length=1024, null=True)
     address2 = models.CharField("Address line 2", max_length=1024, null=True)
     city = models.CharField(max_length=1024, null=True)

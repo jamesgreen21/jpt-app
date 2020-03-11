@@ -1,4 +1,6 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
 
 <div class="parallax jpt-img-blog">
     <div class="text-center text-jpt-white bg-jpt-darkimage jpt-section-img">
@@ -7,26 +9,37 @@
 </div>
 
 <div class="row pt-4 bg-jpt-black text-jpt-white">
-    <div class="col-12 bg-jpt-grey jpt-admin-panel text-center">
-        <h5>Edit Mode - Admin Panel</h5>
-        <a class="btn btn-dark" href="{% url 'new-blog' %}" role="button">Add Blog</a>
-    </div>
-    {% for blog in blogs %}
-    <div class="col-6 col-md-4 jpt-blog-container">
-        <div class="card mx-auto jpt-blog-link">
-            <img class="card-img-top" src="{{ blog.image.url }}" alt="{{ blog.image.url }">
+    <div class="col-12 col-md-4 jpt-blog-link">
+        <div class="card jpt-img-container">
+            <div class="jpt-img-tile" style="background-image: url({% static 'img/jpt-pressup.jpg' %})"></div>
         </div>
-        <a class="text-jpt-white" href="{% url 'view-blog' blog.id %}"><h4 class="py-4 jpt-blog-title">{{ blog.title }}</h4></a>
-        {% if request.user.is_superuser %}
-        <div class="col-12 bg-jpt-grey jpt-admin-panel text-center">
-            <a class="btn btn-danger" href="{% url 'delete-blog' blog.id %}" role="button">Delete</a>
-            <a class="btn btn-dark" href="{% url 'edit-blog' blog.id %}" role="button">Edit</a>
-        </div>
-        {% endif %}
-        <h6 class="py-1 text-jpt-red">{{ blog.created_date }}</h6>
-        <p class="pb-4">{{ blog.headline }}</p>
+        <h4>Press Ups</h4>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        </p>
+        <a class="text-jpt-red" href="/">SEE MORE</a>
     </div>
-    {% endfor %}
+    <div class="col-12 col-md-4 jpt-blog-link">
+        <div class="card jpt-img-container">
+            <div class="jpt-img-tile" style="background-image: url({% static 'img/jpt-meal-prep.jpg' %})"></div>
+        </div>
+        <h4>Nutritional No No’s</h4>
+        <p>
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+        </p>
+        <a class="text-jpt-red" href="/">SEE MORE</a>
+    </div>
+    <div class="col-12 col-md-4 jpt-blog-link">
+        <div class="card jpt-img-container">
+            <div class="jpt-img-tile" style="background-image: url({% static 'img/jpt-squat.jpg' %})"></div>
+        </div>
+        <h4>Squat Variations</h4>
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+        </p>
+        <a class="text-jpt-red" href="/">SEE MORE</a>
+    </div>
 </div>
+
 
 {% endblock content %}

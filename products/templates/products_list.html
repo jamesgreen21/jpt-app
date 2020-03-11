@@ -1,0 +1,33 @@
+{% extends 'base.html' %} {% block content %}
+
+<div class="row">
+    <form action="{% url 'search' %}" method="get">
+        <input type="text" name="search_product">
+        <button type="search">Search</button>
+    </form>
+</div>
+
+<div class="row row-flex">
+    {% for class in classes %}
+    <div class="col-xs-10 col-xs-offset-1 col-sm-offset-0 col-sm-6 col-md-4 display panel panel-default">
+        <div class="panel-body">
+            <div class="product" style="background-image: url('{{ MEDIA_URL }}{{ class.image }}')"></div>
+
+            <h3>{{ class.name }}</h3>
+            <p class="product-description">{{ class.description }}</p>
+            <p>{{ class.price }}</p>
+
+            <form method="post" action="{% url 'add_to_cart' class.id %}">
+                {% csrf_token %}
+                <div class="input-group">
+                    <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
+                    <span class="input-group-btn">
+                            <button class="btn btn-success" type="submit">Add</button>
+                        </span>
+                </div>
+            </form>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}
