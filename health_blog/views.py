@@ -53,7 +53,8 @@ def create_or_edit_blog(request, pk=None):
     context = {
         'title': 'Health & Wellbeing Blog',
         'nbar': 'blog',
-        'form': form
+        'form': form,
+        'blog': blog,
     }
 
     return render(request, 'blog_form.html', context)

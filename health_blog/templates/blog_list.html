@@ -1,34 +1,38 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block content %}
+{% extends 'base.html' %} {% load static %} {% block content %}
 
-<div class="parallax jpt-img-blog">
-    <div class="text-center text-jpt-white bg-jpt-darkimage jpt-section-img">
-        <h3 class="">Health & Wellbeing Blog</h3>
+<div class="parallax" style="background-image: url({% static 'img/jpt-squat-training.jpg' %}">
+    <div class="text-center bg-jpt-darkimage jpt-blog-img">
+        <h1 class="text-jpt-white">Health & Wellbeing Blog</h1>
     </div>
 </div>
 
+
+{% if request.user.is_superuser %}
+<div class="row">
+    <div class="col-12 bg-jpt-black text-center py-3">
+        <h4 class="text-jpt-red">EDIT MODE</h4>
+        <a class="btn btn-dark" href="{% url 'new-blog' %}" role="button">Add Blog</a>
+    </div>
+</div>
+{% endif %}
+
 <div class="row pt-4 bg-jpt-black text-jpt-white">
     {% for blog in blogs %}
-    <div class="col-12 col-md-4 jpt-blog-link">
-        <div class="card jpt-img-container">
-            <div class="jpt-img-tile" style="background-image: url({{ blog.image.url }})"></div>
+    <div class="col-12 col-md-4 jpt-blog-card">
+        <div class="card">
+            <div class="card jpt-img-container jpt-img-tile" style="background-image: url({{ blog.image.url }})"></div>
         </div>
-        <h4>{{ blog.title }}</h4>
-        <p>{{ blog.headline }}</p>
-        <a class="text-jpt-red" href="/">SEE MORE</a>
+        <h4 class="py-4">{{ blog.title }}</h4>
+        <p class="py-2">{{ blog.headline }}</p>
+        <a class="py-2 jpt-blog-link" href="{% url 'view-blog' blog.id %}">SEE MORE</a> 
+        {% if request.user.is_superuser %}
+        <div class="text-center py-2">
+            <a class="btn btn-danger" href="{% url 'delete-blog' blog.id %}" role="button">Delete</a>
+            <a class="btn btn-dark" href="{% url 'edit-blog' blog.id %}" role="button">Edit</a>
+        </div>
+        {% endif %}
     </div>
     {% endfor %}
-    <div class="col-12 col-md-4 jpt-blog-link">
-        <div class="card jpt-img-container">
-            <div class="jpt-img-tile" style="background-image: url({% static 'img/jpt-squat.jpg' %})"></div>
-        </div>
-        <h4>Squat Variations</h4>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-        </p>
-        <a class="text-jpt-red" href="/">SEE MORE</a>
-    </div>
 </div>
 
 
