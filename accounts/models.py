@@ -25,6 +25,7 @@ class Profile(models.Model):
     address2 = models.CharField("Address line 2", max_length=1024, null=True)
     city = models.CharField(max_length=1024, null=True)
     postcode = models.CharField( max_length=12, null=True)
+    session_token = models.IntegerField(default=0)
 
     def __str__(self):
         return f'{self.user.username} Profile'

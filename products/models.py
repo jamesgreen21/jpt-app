@@ -18,6 +18,7 @@ class Product(models.Model):
         max_length=30,
         choices=TYPE,
     )
+    session_token = models.IntegerField(default=0)
 
     def __str__(self):
         return self.name

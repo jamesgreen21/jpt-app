@@ -139,7 +139,7 @@
 </div>
 
 <!--Bio Banner-->
-<div class="bg-jpt-black text-jpt-white">
+<div class="bg-jpt-black text-jpt-red">
     <div class="row">
         <div class="col-12">
             <h2 class="jpt-banner">Meet James</h2>
@@ -173,6 +173,27 @@
     </div>
 </a>
 
+<!--Testimonials Banner-->
+<div class="bg-jpt-black text-jpt-red">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="jpt-banner">Testimonials</h2>
+        </div>
+    </div>
+</div>
+
+<!--Testimonials Section-->
+<div class="bg-jpt-black">
+    <div class="text-jpt-white jpt-testimonial">
+        {% for feedback in user_feedback %}
+        <div class="speech-bubble">
+            <h4 class="text-jpt-red">{{ feedback.name }}</h4>
+            <h5>{{ feedback.comments }}</h5>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
 <!--JPT Banner-->
 <div class="bg-jpt-black text-jpt-white">
     <div class="row">
@@ -180,22 +201,6 @@
             <h2 class="jpt-banner">James Green
                 <large class="jpt-logo-text">JPT</large> <small class="text-jpt-red">Personal Trainer</small></h2>
         </div>
-    </div>
-</div>
-
-<!--Testimonials Section-->
-<div class="parallax jpt-img-two">
-    <div class="text-jpt-white bg-jpt-darkimage jpt-testimonial">
-        <div class="speech-bubble">
-            <h4 class="text-jpt-red">Testimonials</h4>
-            <p>Hear what the trainees had to say about James...</p>
-        </div>
-        {% for feedback in user_feedback %}
-        <div class="speech-bubble">
-            <h6 class="text-jpt-red">{{ feedback.name }}</h6>
-            <p>{{ feedback.comments }}</p>
-        </div>
-        {% endfor %}
     </div>
 </div>
 

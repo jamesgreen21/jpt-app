@@ -33,6 +33,7 @@ urlpatterns = [
     path('health-and-wellbeing-blog/', include('health_blog.urls')),
     path('products/', include('products.urls')),
     path('cart/', include('cart.urls')),
+    path('search/', include('search.urls')),
 ]
 
 

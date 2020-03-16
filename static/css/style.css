@@ -25,23 +25,8 @@ p {
     padding-right: 0;
 }
 
-.join-img-jpt {
-    background: url("/static/img/joeparispt_mainpic1.jpg") 50% 0 no-repeat;
-    background-size: cover;
-}
-
-.login-img-jpt {
-    background: url("/static/img/joeparispt_mainpic2.jpg") 50% 0 no-repeat;
-    background-size: cover;
-}
-
-.profile-img-jpt {
-    background: url("/static/img/joeparispt_mainpic3.jpg") 50% 0 no-repeat;
-    background-size: cover;
-}
-
-.blog-img-jpt {
-    background: url("/static/img/joeparispt_mainpic4.jpg") 50% 0 no-repeat;
+.jpt-accounts-img {
+    background-repeat: no-repeat;
     background-size: cover;
 }
 
@@ -79,8 +64,8 @@ p {
 
 
 .bg-jpt-gradient {
-    background: rgb(17,17,17);
-    background: linear-gradient(0deg, rgba(17,17,17,0) 0%, rgba(17,17,17,0.3536765047816002) 10%, rgba(17,17,17,0.6) 25%, rgba(17,17,17,0.75) 50%, rgba(17,17,17,0.85) 75%, rgba(17,17,17,1) 90%);
+    background: rgb(17, 17, 17);
+    background: linear-gradient(0deg, rgba(17, 17, 17, 0) 0%, rgba(17, 17, 17, 0.3536765047816002) 10%, rgba(17, 17, 17, 0.6) 25%, rgba(17, 17, 17, 0.75) 50%, rgba(17, 17, 17, 0.85) 75%, rgba(17, 17, 17, 1) 90%);
 }
 
 /* -------------------------- JPT Text Colours --------------------------------- */
@@ -174,9 +159,8 @@ p {
 /* -------------------------- Landing Page - Top Section ----------------------------- */
 
 .headline-img-jpt {
-    background: url("/static/img/jpt-landing.png") 50% 0 no-repeat;
+    background: url("/static/img/jpt-spinning.jpg") 50% 0 no-repeat;
     background-size: cover;
-    height: 100%;
     width: 100%;
 }
 
@@ -197,7 +181,7 @@ p {
 }
 
 .carousel-caption {
-    right: 0; 
+    right: 0;
     top: 0;
     bottom: 65%;
     left: 0;
@@ -438,31 +422,44 @@ p {
 }
 
 .speech-bubble {
-    left: 25%;
-    width: 75%;
-	position: relative;
-	background: #000000;
-	border-radius: .4em;
+    position: relative;
+    margin: 20px;
+    padding: 10px;
+    background: #111111;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border: #fafafa solid 4px;
 }
 
 .speech-bubble:after {
-	content: '';
-	position: absolute;
-	right: 0;
-	top: 50%;
-	width: 0;
-	height: 0;
-	border: 24px solid transparent;
-	border-left-color: #000000;
-	border-right: 0;
-	border-top: 0;
-	margin-top: -12px;
-	margin-right: -24px;
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 15px 0 15px 25px;
+    border-color: transparent #111111;
+    display: block;
+    width: 0;
+    z-index: 1;
+    right: -25px;
+    top: 28px;
+}
+
+.speech-bubble:before {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 18px 0 18px 28px;
+    border-color: transparent #fafafa;
+    display: block;
+    width: 0;
+    z-index: 0;
+    right: -32px;
+    top: 25px;
 }
 
 .speech-bubble h4,
-.speech-bubble h6,
-.speech-bubble p {
+.speech-bubble h5 {
     padding: 10px;
 }
 
@@ -500,6 +497,13 @@ p {
     border-radius: 25px;
 }
 
+.jpt-link-red {
+    color: #de0000;
+}
+
+.jpt-link-red:hover {
+    color: #de0000;
+}
 
 /*----------------------------------- Blog -------------------------------------*/
 

@@ -32,7 +32,10 @@
             <ul class="navbar-nav nav-primary-link">
                 {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'user-profile' %}">Profile{% if nbar == 'profile' %} <span class="sr-only">(current)</span>{% endif %}</a>
+                    <a class="nav-link" href="{% url 'user-profile' %}">
+                        Profile{% if nbar == 'profile' %} <span class="sr-only">(current)</span>{% endif %}
+                        <label class="badge badge-light bg-jpt-red" data-toggle="tooltip" data-placement="bottom" title="Session Tokens">{{ user.profile.session_token }}</label>
+                    </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'user-logout' %}">Logout{% if nbar == 'logout' %} <span class="sr-only">(current)</span>{% endif %}</a>
@@ -55,16 +58,18 @@
             <a class="nav-link {% if nbar == 'home' %}jpt-nav-active{% endif %}" href="{% url 'home' %}">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link {% if nbar == 'about' %}jpt-nav-active{% endif %}" href="{% url 'about' %}">About</a>
+            <a class="nav-link {% if nbar == 'blog' %}jpt-nav-active{% endif %}" href="{% url 'jpt-blogs' %}">Health & Well-being Blog</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link {% if nbar == 'blog' %}jpt-nav-active{% endif %}" href="{% url 'jpt-blogs' %}">Health & Wellbeing Blog</a>
+            <a class="nav-link {% if nbar == 'products' %}jpt-nav-active{% endif %}" href="{% url 'products' %}">Buy PT Sessions & Products</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link {% if nbar == 'products' %}jpt-nav-active{% endif %}" href="{% url 'products' %}">Training Plan Options</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link {% if nbar == 'checkout' %}jpt-nav-active{% endif %}" href="{% url 'view_cart' %}">Checkout</a>
+            <a class="nav-link {% if nbar == 'cart' %}jpt-nav-active{% endif %}" href="{% url 'view_cart' %}">
+                <i class="fa fa-shipping-cart"></i>Cart
+                {% if product_count > 0 %}
+                    <label class="badge badge-warning">{{ product_count }}</label>
+                {% endif %}
+            </a>
         </li>
     </ul>
 

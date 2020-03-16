@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'health_blog',
     'products',
     'cart',
+    'search',
 ]
 
 MIDDLEWARE = [

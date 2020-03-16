@@ -43,7 +43,8 @@ $(window).scroll(function(event) {
   if (prevScrollpos > currentScrollPos) {
     $("#navbar").css("top", "0px");
     $("#navbar2").css("top", "90px");
-  } else {
+  }
+  else {
     $("#navbar").css("top", "-90px");
     $("#navbar2").css("top", "0px");
   }
@@ -121,3 +122,10 @@ anime.timeline({ loop: true })
     easing: "easeOutCirc",
     duration: 200,
   });
+
+
+$(document).ready(function() {
+  $(function() {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+});
