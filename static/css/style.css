@@ -62,12 +62,6 @@ p {
 }
 
 
-
-.bg-jpt-gradient {
-    background: rgb(17, 17, 17);
-    background: linear-gradient(0deg, rgba(17, 17, 17, 0) 0%, rgba(17, 17, 17, 0.3536765047816002) 10%, rgba(17, 17, 17, 0.6) 25%, rgba(17, 17, 17, 0.75) 50%, rgba(17, 17, 17, 0.85) 75%, rgba(17, 17, 17, 1) 90%);
-}
-
 /* -------------------------- JPT Text Colours --------------------------------- */
 
 .text-jpt-darkblue {
@@ -101,13 +95,20 @@ p {
 
 /* ------------------------------------- Navbar -------------------------------------- */
 
-.nav-primary-jpt {
+.jpt-nav-primary {
     width: 100%;
     z-index: 1;
     position: fixed;
     top: 0px;
     transition: top 0.3s;
-    min-height: 90px;
+    min-height: 80px;
+    background: rgb(17,17,17);
+    background: linear-gradient(0deg, rgba(17,17,17,0) 0%, rgba(17,17,17,0.3536765047816002) 10%, rgba(17,17,17,0.6) 25%, rgba(17,17,17,0.75) 50%, rgba(17,17,17,0.85) 75%, rgba(17,17,17,1) 90%);
+}
+
+
+.navbar-nav {
+    width: 100%;
 }
 
 .navbar-brand {
@@ -119,90 +120,45 @@ p {
     color: #fafafa;
 }
 
-.nav-primary-link {
-    margin-left: auto;
-}
-
-.nav-secondary-jpt {
-    top: 90px;
-    transition: top 0.3s;
-    min-height: 60px;
-    -webkit-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.75);
-    box-shadow: 0px 2px 3px 0px rgba(0, 0, 0, 0.75);
-}
-
-.nav-secondary-jpt li {
-    align-self: center;
-}
-
-.nav-secondary-jpt a {
-    color: #fafafa;
-    font-weight: 700;
-}
-
-.nav-secondary-jpt a {
-    transition: all 0.2s ease-in-out;
-    -moz-transition: all 0.2s ease-in-out;
-    -webkit-transition: all 0.2s ease-in-out;
-    -o-transition: all 0.2s ease-in-out;
-}
-
-.nav-secondary-jpt a:hover {
-    text-decoration: underline;
-}
-
-.jpt-page-content {
-    margin-top: 90px;
-}
-
 /* -------------------------- Landing Page - Top Section ----------------------------- */
 
-.headline-img-jpt {
-    background: url("/static/img/jpt-spinning.jpg") 50% 0 no-repeat;
-    background-size: cover;
-    width: 100%;
+.jpt-headline .carousel-item {
+    height: 90vh;
 }
 
-.jpt-logo-primary {
-    font-size: 80px;
-}
-
-.jpt-logo-secondary {
-    font-size: 35px;
-    margin-top: -20px;
+.jpt-headline img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: -1;
+    filter: brightness(50%);
 }
 
 .jpt-carousel {
-    -webkit-box-shadow: 0px 0px 5px 5px rgba(17, 17, 17, 1);
-    -moz-box-shadow: 0px 0px 5px 5px rgba(17, 17, 17, 1);
-    box-shadow: 0px 0px 5px 5px rgba(17, 17, 17, 1);
-    border-radius: 5px;
-}
-
-.carousel-caption {
-    right: 0;
-    top: 0;
-    bottom: 65%;
     left: 0;
+    right: 0;
+    bottom: 50%;
     width: 100%;
 }
 
-.jpt-carousel .carousel-inner img {
-    filter: brightness(75%);
+.jpt-carousel h2 {
+    font-size: 80px;
+    font-weight: 700;
+    text-align: right;
+    padding-right: 25px;
 }
 
-.jpt-carousel .carousel-item h4 {
+.jpt-carousel h3 {
+    font-size: 35px;
     font-weight: 500;
+    margin-top: -10px;
+    text-align: right;
+    padding-right: 25px;
 }
 
-.jpt-carousel .carousel-item a {
-    font-weight: 600;
-}
+/*------------------------------------------------*/
 
-.jpt-carousel .carousel-item a:hover {
-    color: #de0000;
-}
 
 .circle {
     position: absolute;
@@ -263,6 +219,7 @@ p {
     top: 400px;
     right: 100px;
 }
+/*------------------------------------------------*/
 
 .jpt-promo-primary {
     padding: 20px;

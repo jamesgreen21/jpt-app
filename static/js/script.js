@@ -40,13 +40,14 @@ $(window).scroll(function(event) {
   });
 
   var currentScrollPos = window.pageYOffset;
-  if (prevScrollpos > currentScrollPos) {
-    $("#navbar").css("top", "0px");
-    $("#navbar2").css("top", "90px");
+  if (currentScrollPos == 0) {
+    $("#navbar").css("top", "0px").css("background-color", "transparent");
+  }
+  else if (prevScrollpos > currentScrollPos) {
+    $("#navbar").css("top", "0px").css("background-color", "#111111");
   }
   else {
     $("#navbar").css("top", "-90px");
-    $("#navbar2").css("top", "0px");
   }
   prevScrollpos = currentScrollPos;
 

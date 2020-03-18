@@ -22,14 +22,30 @@
 <body>
 
     <!--Navbar - Primary-->
-    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark bg-jpt-black nav-primary-jpt">
-        <a class="navbar-brand" href="{% url 'home' %}">JPT</a>
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-dark jpt-nav-primary">
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
 
         <div class="collapse navbar-collapse text-right" id="navbarSupportedContent">
-            <ul class="navbar-nav nav-primary-link">
+            <ul class="navbar-nav nav-primary-link nav-fill">
+                <li class="nav-item">
+                    <a class="nav-link {% if nbar == 'home' %}jpt-nav-active{% endif %}" href="{% url 'home' %}">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if nbar == 'blog' %}jpt-nav-active{% endif %}" href="{% url 'jpt-blogs' %}">Health & Well-being Blog</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if nbar == 'products' %}jpt-nav-active{% endif %}" href="{% url 'products' %}">Buy PT Sessions & Products</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link {% if nbar == 'cart' %}jpt-nav-active{% endif %}" href="{% url 'view_cart' %}">
+                        <i class="fa fa-shipping-cart"></i>Cart
+                        {% if product_count > 0 %}
+                            <label class="badge badge-warning">{{ product_count }}</label>
+                        {% endif %}
+                    </a>
+                </li>
                 {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'user-profile' %}">
@@ -52,27 +68,6 @@
         </div>
     </nav>
 
-    <!--Navbar - Secondary-->
-    <ul id="navbar2" class="nav nav-fill sticky-top bg-jpt-red nav-secondary-jpt">
-        <li class="nav-item">
-            <a class="nav-link {% if nbar == 'home' %}jpt-nav-active{% endif %}" href="{% url 'home' %}">Home</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link {% if nbar == 'blog' %}jpt-nav-active{% endif %}" href="{% url 'jpt-blogs' %}">Health & Well-being Blog</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link {% if nbar == 'products' %}jpt-nav-active{% endif %}" href="{% url 'products' %}">Buy PT Sessions & Products</a>
-        </li>
-        <li class="nav-item">
-            <a class="nav-link {% if nbar == 'cart' %}jpt-nav-active{% endif %}" href="{% url 'view_cart' %}">
-                <i class="fa fa-shipping-cart"></i>Cart
-                {% if product_count > 0 %}
-                    <label class="badge badge-warning">{{ product_count }}</label>
-                {% endif %}
-            </a>
-        </li>
-    </ul>
-
     <!--Django Messages-->
     {% if messages %}
     <ul class="messages">
@@ -85,7 +80,7 @@
     {% endif %}
 
     <!--Block Content-->
-    <div class="container-fluid jpt-page-content">
+    <div class="container-fluid">
         {% block content %}{% endblock %}
     </div>
 
