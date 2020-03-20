@@ -1,21 +1,24 @@
-{% extends 'base.html' %} {% load static %} {% block content %}
+{% extends 'base.html' %} {% load static %}{% load bootstrap_tags %} {% block content %}
 
+<!--Header and Image-->
 <div class="parallax" style="background-image: url({% static 'img/jpt-squat-training.jpg' %}">
     <div class="text-center bg-jpt-darkimage jpt-blog-img">
         <h1 class="text-jpt-white">Health & Wellbeing Blog</h1>
     </div>
 </div>
 
-
+<!--Admin log-in, edit mode-->
 {% if request.user.is_superuser %}
 <div class="row">
     <div class="col-12 bg-jpt-black text-center py-3">
         <h4 class="text-jpt-red">EDIT MODE</h4>
         <a class="btn btn-dark" href="{% url 'new-blog' %}" role="button">Add Blog</a>
+        <a class="btn btn-light" href="{% url 'blog_questions' 0 %}" role="button">Go to Q&A</a>
     </div>
 </div>
 {% endif %}
 
+<!--Blog post cards-->
 <div class="row pt-4 bg-jpt-black text-jpt-white">
     {% for blog in blogs %}
     <div class="col-12 col-md-4 jpt-blog-card">
@@ -24,8 +27,7 @@
         </div>
         <h4 class="py-4">{{ blog.title }}</h4>
         <p class="py-2">{{ blog.headline }}</p>
-        <a class="py-2 jpt-blog-link" href="{% url 'view-blog' blog.id %}">SEE MORE</a> 
-        {% if request.user.is_superuser %}
+        <a class="py-2 jpt-blog-link" href="{% url 'view-blog' blog.id %}">SEE MORE</a> {% if request.user.is_superuser %}
         <div class="text-center py-2">
             <a class="btn btn-danger" href="{% url 'delete-blog' blog.id %}" role="button">Delete</a>
             <a class="btn btn-dark" href="{% url 'edit-blog' blog.id %}" role="button">Edit</a>
@@ -35,5 +37,39 @@
     {% endfor %}
 </div>
 
+<!--Ask a question-->
+<div class="row py-4 bg-jpt-black">
+    <div class="col-10 offset-1">
+        <form class="text-jpt-white" method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Ask James a question...</legend>
+                {{ question_form|as_bootstrap }}
+            </fieldset>
+            <div class="form-group">
+                <button type="submit" class="btn btn-dark">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!--Q&A Banner-->
+<div class="row bg-jpt-black">
+    <div class="col-12">
+        <h2 class="jpt-banner text-jpt-red">Frequently Asked Questions</h2>
+    </div>
+</div>
+
+<!--Q&A - starred questions-->
+<div class="bg-jpt-black">
+    <div class="text-jpt-white jpt-testimonial">
+        {% for answer in star_answers %}
+        <div class="speech-bubble">
+            <h4 class="text-jpt-red">{{ answer.question.content }}</h4>
+            <h5>{{ answer.content }}</h5>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 
 {% endblock content %}

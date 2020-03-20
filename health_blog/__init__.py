@@ -1,0 +1,1 @@
+default_app_config = 'health_blog.apps.HealthBlogConfig'

@@ -1,0 +1,38 @@
+{% extends "base.html" %} {% load static %} {% load bootstrap_tags %} {% block content %}
+
+<!--Q&A Banner-->
+<div class="row bg-jpt-black">
+    <div class="col-12">
+        <h2 class="jpt-banner text-jpt-red">All questions</h2>
+    </div>
+</div>
+
+<!--Q&A - starred questions-->
+<div class="bg-jpt-black">
+    <div class="text-jpt-white jpt-testimonial">
+        {% for answer in all_answers %} {% if edit_answer == answer.id %}
+        <form class="text-jpt-white" method="POST">
+            {% csrf_token %}
+            <div class="speech-bubble">
+                <h4 class="text-jpt-red">{{ answer.question.content }}</h4>
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Response:</legend>
+                    {{ answer_form|as_bootstrap }}
+                </fieldset>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-dark">Submit</button>
+                </div>
+            </div>
+        </form>
+        {% else %}
+        <div class="speech-bubble">
+            <h4 class="text-jpt-red">{{ answer.question.content }}</h4>
+            <h5>{{ answer.content }}</h5>
+            <a class="btn btn-light" href="{% url 'blog_questions' answer.id %}" role="button">Edit</a>
+            <a class="btn btn-danger" href="{% url 'delete_question' answer.id %}" role="button">Delete</a>
+        </div>
+        {% endif %} {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}
