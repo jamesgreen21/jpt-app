@@ -1,38 +1,36 @@
 {% extends "base.html" %} {% load static %} {% load bootstrap_tags %} {% block content %}
 
-<div class="jpt-accounts-img" style="background-image: url({% static 'img/jpt-blog-default.jpg' %}">
-    <div class="row bg-jpt-darkimage">
-        <div class="col-11 text-right">
-            <h2 class="jpt-logo-primary text-jpt-white">James Green</h2>
-            <h3 class="jpt-logo-secondary text-jpt-red">Personal Trainer</h3>
-        </div>
+<!--Header and Image-->
+<div class="parallax" style="background-image: url({% static 'img/jpt-dumbbells.jpg' %}">
+    <div class="text-center text-jpt-white bg-jpt-darkimage jpt-page-header">
+        <h5 class="">Profile</h5>
     </div>
+</div>
 
-    <div class="row bg-jpt-darkimage">
-        <div class="col-10 offset-1 col-md-5">
-            <!--<div class="col-12 col-md-8 user-container bg-jpt-black bg-jpt-white">-->
-            <div class="jumbotron bg-jpt-black text-jpt-white">
-                <div class="media">
-                    <img src="{{ user.profile.image.url }}" class="align-self-start mr-3 rounded-circle jpt-profile-img" alt="...">
-                    <div class="media-body">
-                        <h5 class="mt-0">{{ user.username }}</h5>
-                        <p class="text-secondary">{{ user.email }}</p>
-                        <a class="jpt-link-red" href="{% url 'products' %}">
-                            <p data-toggle="tooltip" data-placement="left" title="Get Tokens">Session Tokens: {{ user.profile.session_token }}</p>
-                        </a>
-                    </div>
+<!--Profile Form-->
+<div class="row py-4 bg-jpt-black">
+    <div class="col-10 offset-1 text-jpt-white">
+        <div class="jumbotron bg-jpt-black text-jpt-white">
+            <div class="media">
+                <img src="{{ user.profile.image.url }}" class="align-self-start mr-3 rounded-circle jpt-profile-img" alt="...">
+                <div class="media-body">
+                    <h5 class="mt-0">{{ user.username }}</h5>
+                    <p class="text-secondary">{{ user.email }}</p>
+                    <a class="jpt-link-red" href="{% url 'products' %}">
+                        <p data-toggle="tooltip" data-placement="left" title="Get Tokens">Session Tokens: {{ user.profile.session_token }}</p>
+                    </a>
                 </div>
-                <form method="POST" enctype="multipart/form-data">
-                    {% csrf_token %}
-                    <fieldset class="form-group">
-                        <legend class="border-bottom mb-4">Profile Information</legend>
-                        {{ user_form|as_bootstrap }} {{ profile_form|as_bootstrap }}
-                    </fieldset>
-                    <div class="form-group">
-                        <button class="btn btn-outline-info" type="submit">Update</button>
-                    </div>
-                </form>
             </div>
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4">Profile Information</legend>
+                    {{ user_form|as_bootstrap }} {{ profile_form|as_bootstrap }}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit">Update</button>
+                </div>
+            </form>
         </div>
     </div>
 </div>

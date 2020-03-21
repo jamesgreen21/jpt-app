@@ -1,30 +1,27 @@
 {% extends "base.html" %} {% load static %} {% load bootstrap_tags %} {% block content %}
 
-<div class="jpt-accounts-img" style="background-image: url({% static 'img/jpt-blog-default.jpg' %}">
-    <div class="row bg-jpt-darkimage">
-        <div class="col-11 text-right">
-            <h2 class="jpt-logo-primary text-jpt-white">James Green</h2>
-            <h3 class="jpt-logo-secondary text-jpt-red">Personal Trainer</h3>
-        </div>
+<!--Header and Image-->
+<div class="parallax" style="background-image: url({% static 'img/jpt-car-deadlift2.jpg' %}">
+    <div class="text-center text-jpt-white bg-jpt-darkimage jpt-page-header">
+        <h5 class="">Log In</h5>
     </div>
+</div>
 
-    <div class="row bg-jpt-darkimage jpt-login-section">
-        <div class="col-10 offset-1 col-md-5">
-            <div class="jumbotron bg-jpt-black text-jpt-white">
-                <form method="POST">
-                    {% csrf_token %}
-                    <fieldset class="form-group">
-                        <legend class="border-bottom mb-4">Log In:</legend>
-                        {{ form|as_bootstrap }}
-                    </fieldset>
-                    <div class="form-group">
-                        <button type="submit" class="btn btn-dark">Login</button>
-                    </div>
-                </form>
-                <div class="border-top pt-3">
-                    <p>Need an account?<a class="ml-2" href="{% url 'user-register' %}">Sign Up Now!</a></p>
-                </div>
+<!--Log In Form-->
+<div class="row py-4 bg-jpt-black">
+    <div class="col-10 offset-1 text-jpt-white">
+        <form method="POST">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Log In:</legend>
+                {{ form|as_bootstrap }}
+            </fieldset>
+            <div class="form-group">
+                <button type="submit" class="btn btn-dark">Login</button>
             </div>
+        </form>
+        <div class="border-top pt-3">
+            <p>Need an account?<a class="ml-2 jpt-link-red" href="{% url 'user-register' %}">Sign Up Now!</a></p>
         </div>
     </div>
 </div>

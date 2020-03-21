@@ -35,7 +35,7 @@ $(window).scroll(function(event) {
   $(".jpt-text").each(function(i, el) {
     var el = $(el);
     if (el.visible(true)) {
-      el.addClass("come-in");
+      el.addClass("animation-target");
     }
   });
 

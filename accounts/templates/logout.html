@@ -1,21 +1,21 @@
-{% extends "base.html" %} {% load static %}  {% block content %}
+{% extends "base.html" %} {% load static %} {% block content %}
 
-<div class="jpt-accounts-img" style="background-image: url({% static 'img/jpt-blog-default.jpg' %}">
-    <div class="row bg-jpt-darkimage">
-        <div class="col-11 text-right">
-            <h2 class="jpt-logo-primary text-jpt-white">James Green</h2>
-            <h3 class="jpt-logo-secondary text-jpt-red">Personal Trainer</h3>
-        </div>
+<!--Header and Image-->
+<div class="parallax" style="background-image: url({% static 'img/jpt-car-deadlift.jpg' %}">
+    <div class="text-center text-jpt-white bg-jpt-darkimage jpt-page-header">
+        <h5 class="">Log In</h5>
     </div>
+</div>
 
-    <div class="row bg-jpt-darkimage text-jpt-white jpt-login-section">
-        <div class="col s12">
-            <h2>You have been logged out</h2>
-            <div class="border-top pt-3">
-                <a href="{% url 'user-login' %}">Log Back In</a>
-            </div>
+<!--Log back in link-->
+<div class="row py-4 bg-jpt-black">
+    <div class="col-10 offset-1 text-jpt-white text-center">
+        <h2>You have been logged out</h2>
+        <div class="border-top pt-3">
+            <a class="jpt-link-red" href="{% url 'user-login' %}">Log Back In</a>
         </div>
     </div>
 </div>
+
 
 {% endblock content %}
