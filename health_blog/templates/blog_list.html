@@ -7,8 +7,9 @@
     </div>
 </div>
 
-<!--Admin log-in, edit mode-->
 {% if request.user.is_superuser %}
+
+<!--Admin log-in, edit mode-->
 <div class="row">
     <div class="col-12 bg-jpt-black text-center py-3">
         <h4 class="text-jpt-red">EDIT MODE</h4>
@@ -16,6 +17,20 @@
         <a class="btn btn-light" href="{% url 'blog_questions' 0 %}" role="button">Go to Q&A</a>
     </div>
 </div>
+{% else %}
+
+<!--Search a product-->
+<div class="row bg-jpt-black">
+    <div class="col-10 offset-1">
+        <form class="text-jpt-white jpt-navbar-adjust" action="{% url 'search' %}" method="GET">
+            {% csrf_token %}
+            <legend class="border-bottom mb-4">Search Blogs</legend>
+            <input type="text" class="form-control" name="q" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <button type="submit" class="btn btn-dark">Search</button>
+        </form>
+    </div>
+</div>
+
 {% endif %}
 
 <!--Blog post cards-->

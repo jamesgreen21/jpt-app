@@ -120,6 +120,10 @@ p {
     color: #fafafa;
 }
 
+.jpt-navbar-adjust {
+    padding-top: 80px;
+}
+
 /* -------------------------- Landing Page - Top Section ----------------------------- */
 
 .jpt-headline .carousel-item {

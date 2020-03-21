@@ -7,8 +7,7 @@
         <h4 class="pt-5 text-center text-jpt-red">Personal Training Sessions Tokens:</h4>
         <hr class="py-3 border-white">
     </div>
-    {% for product in products %}
-    {% if product.product_type == 'class' %}
+    {% for product in products %} {% if product.product_type == 'class' %}
     <div class="col-8 offset-1">
         <h5>{{ product.name }}</h5>
         <p class="product-description">{{ product.description|linebreaks }}</p>
@@ -23,16 +22,14 @@
             </div>
         </form>
     </div>
-    {% endif %}
-    {% endfor %}
+    {% endif %} {% endfor %}
 
     <!--Product Items-->
     <div class="col-12">
         <h4 class="pt-5 text-center text-jpt-red">JPT Products:</h4>
         <hr class="py-3 border-white">
     </div>
-    {% for product in products %}
-    {% if product.product_type == 'item' %}
+    {% for product in products %} {% if product.product_type == 'item' %}
     <div class="col-8 offset-1">
         <h5>{{ product.name }}</h5>
         <p class="product-description">{{ product.description|linebreaks }}</p>
@@ -47,8 +44,7 @@
             </div>
         </form>
     </div>
-    {% endif %}
-    {% endfor %}
+    {% endif %} {% endfor %}
 
 </div>
 
