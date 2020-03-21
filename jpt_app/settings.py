@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     'products',
     'cart',
     'search',
+    'checkout',
 ]
 
 MIDDLEWARE = [
@@ -136,6 +137,10 @@ USE_L10N = True
 USE_TZ = True
 
 
+LOGIN_REDIRECT_URL = 'home'
+LOGIN_URL = 'home'
+
+
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
@@ -146,5 +151,5 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
-LOGIN_REDIRECT_URL = 'home'
-LOGIN_URL = 'home'
+STRIPE_PUBLISHABLE = os.getenv('STRIPE_PUBLISHABLE')
+STRIPE_SECRET = os.getenv('STRIPE_SECRET')

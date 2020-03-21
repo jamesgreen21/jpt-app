@@ -31,7 +31,6 @@ def get_blogs(request):
         'question_form': question_form,
         'star_answers': star_answers,
     }
-
     return render(request, "blog_list.html", context)
 
 
@@ -43,12 +42,12 @@ def blog_detail(request, pk):
     blog = get_object_or_404(Blog, pk=pk)
     blog.views += 1
     blog.save()
+
     context = {
         'title': blog.title,
         'nbar': 'blog',
         'blog': blog
     }
-
     return render(request, "blog_detail.html", context)
 
 
@@ -72,7 +71,6 @@ def create_or_edit_blog(request, pk=None):
         'form': form,
         'blog': blog,
     }
-
     return render(request, 'blog_form.html', context)
 
 
@@ -107,7 +105,6 @@ def create_or_edit_answers(request, pk=None):
         'answer_form': answer_form,
         'all_answers': all_answers,
     }
-
     return render(request, 'answer_form.html', context)
 
 
