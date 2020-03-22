@@ -52,7 +52,7 @@
 <!--Checkout Form-->
 <div class="row bg-jpt-black text-jpt-white">
     <div class="col-10 offset-1">
-        <form role="form" method="post" id="payment-form" action="{% url 'checkout' %}">
+        <form role="form" method="POST" id="payment-form" action="{% url 'checkout' %}">
             <h4 class="pt-4 text-center text-jpt-red">Payment Details</h4>
             <div id="credit-card-errors" style="display: none;">
                 <div id="alert-message block-message error" id="stripe-error-message"></div>

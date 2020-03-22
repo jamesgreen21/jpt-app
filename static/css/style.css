@@ -133,9 +133,11 @@ p {
 
 .jpt-alert {
     position: fixed;
+    margin: 0 auto;
     top: 30vh;
-    left: 5%;
     z-index: 1;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .message-bubble {
@@ -421,8 +423,9 @@ p {
 }
 
 .jpt-bio-container {
+    min-height: 80vh;
     padding-top: 40px;
-    padding-bottom: 40px
+    padding-bottom: 40px;
 }
 
 .jpt-bio-content {
@@ -430,15 +433,9 @@ p {
 }
 
 .jpt-bio-img {
-    height: 600px;
-    background: url("/static/img/jpt-bio-lg.png");
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
-
-.jpt-img-two {
-    background-image: url("/static/img/jpt-deadlift.jpg");
 }
 
 .parallax {

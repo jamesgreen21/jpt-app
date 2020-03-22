@@ -22,7 +22,6 @@ def index(request):
         'nbar': 'home',
         'user_feedback': user_feedback
     }
-    messages.success(request, "Testing the messages!")
     return render(request, 'index.html', context)
 
 

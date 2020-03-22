@@ -1,7 +1,7 @@
 {% extends 'base.html' %} {% load static %} {% block content %}
 
-<!--Bio Image-->
-<div class="parallax jpt-img-two">
+<!--Headline Image-->
+<div class="parallax" style="background-image: url({% static 'img/jpt-deadlift.jpg' %}">
     <div class="text-center text-jpt-white bg-jpt-darkimage jpt-section-img">
         <img class="rounded-circle jpt-section1-img" src="{% static 'img/jpt-bio-pic.jpg' %}" alt="Image not found">
         <h3 class="">James Green</h3>
@@ -42,7 +42,7 @@
     </div>
 </div>
 
-<!--Heading Section-->
+<!--Promo Section-->
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -104,7 +104,7 @@
 </div>
 
 <!--Benefits & Image Section-->
-<div class="parallax jpt-img-one">
+<div class="parallax" style="background-image: url({% static 'img/jpt-gym.jpg' %}">
     <div class="text-center bg-jpt-darkimage">
         <h5 class="jpt-text text-jpt-white">high energy and motivation</h5>
         <h5 class="jpt-text text-jpt-white">home visits, your place or mine</h5>
@@ -124,7 +124,7 @@
 <!--Bio Section-->
 <div class="bg-jpt-black text-jpt-white jpt-bio-container">
     <div class="row">
-        <div class="col-4 offset-1 jpt-bio-img"></div>
+        <div class="col-4 offset-1 jpt-bio-img" style="background-image: url({% static 'img/jpt-bio-lg.png' %}"></div>
         <div class="offset-1 col-5 jpt-bio-content">
             <p class="py-2">Hi everyone, my name is James Green and I have been <span class="text-jpt-red">Personal Training for 10 years</span> now and have a wealth of experience and knowledge</h5>
                 <p class="py-2">I combine my boxing and conditioning knowledge with weight and strength training to give you a great blend and range of exercise plans to combat any goal.</p>

@@ -6,6 +6,7 @@ from .models import OrderLineItem
 from django.conf import settings
 from django.utils import timezone
 from products.models import Product
+from accounts.models import Profile
 import stripe
 
 
@@ -15,10 +16,12 @@ stripe.api_key = settings.STRIPE_SECRET
 @login_required()
 def checkout(request):
     if request.method == "POST":
+        print('Inside post')
         order_form = OrderForm(request.POST)
         payment_form = MakePaymentForm(request.POST)
 
         if order_form.is_valid() and payment_form.is_valid():
+            print('Inside if valid')
             order = order_form.save(commit=False)
             order.date = timezone.now()
             order.save()
@@ -46,7 +49,8 @@ def checkout(request):
                 messages.error(request, "Your card was declined!")
             
             if customer.paid:
-                messages.error(request, "You have successfully paid")
+                # user = Profile, session_token
+                messages.success(request, "You have successfully paid")
                 request.session['cart'] = {}
                 return redirect(reverse('products'))
             else:
