@@ -1,12 +1,11 @@
 {% extends 'base.html' %} {% load static %}{% load bootstrap_tags %} {% block content %}
 
 <!--Header and Image-->
-<div class="parallax jpt-img-one">
+<div class="parallax" style="background-image: url({% static 'img/jpt-full-bio.jpg' %}">
     <div class="text-center text-jpt-white bg-jpt-darkimage jpt-page-header">
         <h5 class="">Health & Wellbeing Blog</h5>
     </div>
 </div>
-
 
 {% if request.user.is_superuser %}
 

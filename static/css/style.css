@@ -118,6 +118,82 @@ p {
     padding-top: 80px;
 }
 
+.jpt-form a,
+.jpt-link-red,
+.jpt-link-red:hover {
+    color: #de0000;
+}
+
+#jpt-link-white,
+#jpt-link-white:hover {
+    color: #fafafa;
+}
+
+/* ------------------------------------- Messages -------------------------------------- */
+
+.jpt-alert {
+    position: fixed;
+    top: 30vh;
+    left: 5%;
+    z-index: 1;
+}
+
+.message-bubble {
+    position: relative;
+    width: 500px;
+    height: 200px;
+    margin: 20px;
+    padding: 10px;
+    background: #111111;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border: #fafafa solid 5px;
+}
+
+.message-bubble:after {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 25px 25px 25px 0;
+    border-color: transparent #111111;
+    display: block;
+    width: 0;
+    z-index: 1;
+    left: -25px;
+    top: 44px;
+}
+
+.message-bubble:before {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-width: 29px 29px 29px 0;
+    border-color: transparent #fafafa;
+    display: block;
+    width: 0;
+    z-index: 0;
+    left: -34px;
+    top: 40px;
+}
+
+.message-bubble h4 {
+    padding: 10px;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.message-bubble h5 {
+    padding: 10px;
+}
+
+
+.jpt-success {color: #008080;}
+.jpt-info {}
+.jpt-warning {color: #de0000;}
+.jpt-debug {}
+.jpt-error {color: #de0000;}
+
 /* -------------------------- Landing Page - Top Section ----------------------------- */
 
 .jpt-headline .carousel-item {
@@ -207,6 +283,7 @@ p {
 
 
 /* --------------------------------------------------------------------------------- */
+
 .animation-target {
     -webkit-animation: animation 1500ms linear both;
     animation: animation 1500ms linear both;
@@ -341,10 +418,6 @@ p {
     line-height: 50px;
     font-weight: 300;
     text-transform: capitalize;
-}
-
-.jpt-img-one {
-    background-image: url("/static/img/jpt-dumbbells.jpg");
 }
 
 .jpt-bio-container {
@@ -494,13 +567,6 @@ p {
     border-radius: 25px;
 }
 
-.jpt-link-red {
-    color: #de0000;
-}
-
-.jpt-link-red:hover {
-    color: #de0000;
-}
 
 /*----------------------------------- Blog -------------------------------------*/
 
@@ -516,14 +582,6 @@ p {
     padding-top: 80px;
     font-size: 50px;
     font-weight: 600;
-}
-
-
-.jpt-blog-img {
-    display: table-cell;
-    height: 600px;
-    width: 100vw;
-    vertical-align: middle;
 }
 
 .jpt-img-tile {
@@ -547,10 +605,6 @@ p {
     color: #de0000;
 }
 
-.jpt-blog-detail a:hover {
-    color: #de0000;
-}
-
 
 
 /*----------------------------------- Footer -------------------------------------*/
@@ -562,9 +616,4 @@ p {
 
 .jpt-social-icons a i {
     font-size: 50px;
-}
-
-.jpt-link,
-.jpt-link:hover {
-    color: #fafafa;
 }

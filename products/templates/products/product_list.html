@@ -1,5 +1,13 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} {% load static %}{% block content %}
 
+<!--Header and Image-->
+<div class="parallax" style="background-image: url({% static 'img/jpt-dumbbells.jpg' %}">
+    <div class="text-center text-jpt-white bg-jpt-darkimage jpt-page-header">
+        <h5 class="">PT Sessions & Products</h5>
+    </div>
+</div>
+
+<!--Cart for checkout-->
 <div class="row bg-jpt-black text-jpt-white">
 
     <!--Product PT Session Tokens-->

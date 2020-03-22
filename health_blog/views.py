@@ -61,6 +61,7 @@ def create_or_edit_blog(request, pk=None):
         form = BlogPostForm(request.POST, request.FILES, instance=blog)
         if form.is_valid():
             blog = form.save()
+            messages.success(request, 'Blog post added')
             return redirect(blog_detail, blog.pk)
     else:
         form = BlogPostForm(instance=blog)
@@ -80,6 +81,7 @@ def delete_blog(request, pk):
     """
     blog = get_object_or_404(Blog, pk=pk)
     blog.delete()
+    messages.success(request, 'The blog post was deleted')
     return redirect(get_blogs)
 
 
@@ -94,7 +96,8 @@ def create_or_edit_answers(request, pk=None):
         answer_form = AnswerForm(request.POST, instance=answer)
         if answer_form.is_valid():
             answer = answer_form.save()
-            return redirect(create_or_edit_answers, answer.pk)
+            messages.success(request, 'Answer submitted')
+            return redirect(create_or_edit_answers, 0)
     else:
         answer_form = AnswerForm(instance=answer)
 
@@ -114,4 +117,5 @@ def delete_question(request, pk):
     """
     answer = get_object_or_404(Answer, pk=pk) if pk else None
     answer.delete()
+    messages.success(request, 'The question was deleted')
     return redirect(create_or_edit_answers, 0)

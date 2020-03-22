@@ -1,11 +1,14 @@
 {% extends 'base.html' %} {% load static %} {% load bootstrap_tags %} {% block content %}
 
-<div class="row bg-jpt-black text-jpt-white">
-
-    <div class="col-12">
-        <h4 class="pt-5 text-center text-jpt-red">Cart:</h4>
-        <hr class="py-3 border-white">
+<!--Header and Image-->
+<div class="parallax" style="background-image: url({% static 'img/jpt-car-deadlift2.jpg' %}">
+    <div class="text-center text-jpt-white bg-jpt-darkimage jpt-page-header">
+        <h5 class="">Cart</h5>
     </div>
+</div>
+
+<!--Cart-->
+<div class="row bg-jpt-black text-jpt-white">
 
     {% for item in cart_items %}
     <div class="col-8 offset-1">
