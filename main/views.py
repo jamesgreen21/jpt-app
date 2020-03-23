@@ -23,11 +23,3 @@ def index(request):
         'user_feedback': user_feedback
     }
     return render(request, 'index.html', context)
-
-
-def about(request):
-    context = {
-        'title': 'About',
-        'nbar': 'about'
-    }
-    return render(request, 'about.html', context)

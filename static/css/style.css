@@ -93,6 +93,7 @@ p {
     width: 100%;
     z-index: 1;
     position: fixed;
+    text-transform: capitalize;
     top: 0px;
     transition: top 0.3s;
     min-height: 80px;
@@ -100,18 +101,13 @@ p {
     background: linear-gradient(0deg, rgba(17, 17, 17, 0) 0%, rgba(17, 17, 17, 0.3536765047816002) 10%, rgba(17, 17, 17, 0.6) 25%, rgba(17, 17, 17, 0.75) 50%, rgba(17, 17, 17, 0.85) 75%, rgba(17, 17, 17, 1) 90%);
 }
 
-
 .navbar-nav {
     width: 100%;
 }
 
-.navbar-brand {
-    font-family: Open sans;
-    font-size: 25px;
-}
-
-.navbar-brand:hover {
-    color: #fafafa;
+.jpt-nav-active {
+    color: #fafafa !IMPORTANT;
+    transform: scale(1.1);
 }
 
 .jpt-navbar-adjust {
@@ -157,26 +153,26 @@ p {
     content: '';
     position: absolute;
     border-style: solid;
-    border-width: 25px 25px 25px 0;
-    border-color: transparent #111111;
+    border-width: 30px 30px 0;
+    border-color: #111111 transparent;
     display: block;
     width: 0;
     z-index: 1;
-    left: -25px;
-    top: 44px;
+    bottom: -30px;
+    left: 230px;
 }
 
 .message-bubble:before {
     content: '';
     position: absolute;
     border-style: solid;
-    border-width: 29px 29px 29px 0;
-    border-color: transparent #fafafa;
+    border-width: 34px 34px 0;
+    border-color: #fafafa transparent;
     display: block;
     width: 0;
     z-index: 0;
-    left: -34px;
-    top: 40px;
+    bottom: -39px;
+    left: 226px;
 }
 
 .message-bubble h4 {
@@ -190,19 +186,52 @@ p {
 }
 
 
-.jpt-success {color: #008080;}
+.jpt-success {
+    color: #008080;
+}
+
 .jpt-info {}
-.jpt-warning {color: #de0000;}
+
+.jpt-warning {
+    color: #de0000;
+}
+
 .jpt-debug {}
-.jpt-error {color: #de0000;}
+
+.jpt-error {
+    color: #de0000;
+}
 
 /* -------------------------- Landing Page - Top Section ----------------------------- */
 
-.jpt-headline .carousel-item {
+.jpt-headline {
+    padding-top: 100px;
     height: 90vh;
 }
 
-.jpt-headline img {
+.jpt-headline h2 {
+    font-size: 80px;
+    font-weight: 800;
+    text-align: right;
+    padding-right: 25px;
+    text-shadow: -4px 4px 5px rgba(11, 11, 11, 1);
+}
+
+.jpt-headline h3 {
+    font-size: 35px;
+    font-weight: 600;
+    margin-top: -10px;
+    text-align: right;
+    padding-right: 25px;
+    text-shadow: -4px 4px 5px rgba(11, 11, 11, 1);
+}
+
+
+.jpt-carousel-container .carousel-item {
+    height: 90vh;
+}
+
+.jpt-carousel-container img {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -233,6 +262,21 @@ p {
     text-align: right;
     padding-right: 25px;
     text-shadow: -4px 4px 5px rgba(11, 11, 11, 1);
+}
+
+#carousel-link {
+    transition: filter ease .5s;
+}
+
+#carousel-link:hover {
+    filter: brightness(80%);
+}
+
+.jpt-carousel-link {
+    position: absolute;
+    bottom: 10%;
+    left: 50%;
+    transform: translateX(-50%);
 }
 
 .jpt-promo-primary {
@@ -436,6 +480,7 @@ p {
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    min-height: 600px;
 }
 
 .parallax {
@@ -603,6 +648,30 @@ p {
 }
 
 
+/*----------------------------------- Products -------------------------------------*/
+
+.jpt-products h4 {
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+.jpt-products p {
+    font-size: 12px;
+    font-weight: 200;
+}
+
+#jpt-product-cost {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+#jpt-product-total {
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
 
 /*----------------------------------- Footer -------------------------------------*/
 

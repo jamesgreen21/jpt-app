@@ -1,54 +1,54 @@
 {% extends 'base.html' %} {% load static %}{% block content %}
 
 <!--Header and Image-->
-<div class="parallax" style="background-image: url({% static 'img/jpt-dumbbells.jpg' %}">
+<div class="parallax" style="background-image: url({% static 'img/jpt-full-bio.jpg' %}">
     <div class="text-center text-jpt-white bg-jpt-darkimage jpt-page-header">
-        <h5 class="">PT Sessions & Products</h5>
+        <h5 class="">Personal Training & Products</h5>
     </div>
 </div>
 
 <!--Cart for checkout-->
-<div class="row bg-jpt-black text-jpt-white">
+<div class="row bg-jpt-black text-jpt-white jpt-products">
 
     <!--Product PT Session Tokens-->
-    <div class="col-12">
-        <h4 class="pt-5 text-center text-jpt-red">Personal Training Sessions Tokens:</h4>
+    <div class="col-10 offset-1">
+        <h4 class="pt-5 text-jpt-red">Personal Training Sessions Tokens:</h4>
         <hr class="py-3 border-white">
     </div>
     {% for product in products %} {% if product.product_type == 'class' %}
-    <div class="col-8 offset-1">
-        <h5>{{ product.name }}</h5>
-        <p class="product-description">{{ product.description|linebreaks }}</p>
-        <p class="text-right">£{{ product.price }} - <span class="text-jpt-red">SESSION PRICE</span></p>
+    <div class="py-3 col-8 offset-1">
+        <h4 class="jpt-product-name">{{ product.name }}</h4>
+        <p class="jpt-product-description">{{ product.description|linebreaks }}</p>
     </div>
     <div class="col-2">
+        <p id="jpt-product-cost" class="py-3 text-jpt-red">£{{ product.price }}</p>
         <form method="post" action="{% url 'add_to_cart' product.id %}">
             {% csrf_token %}
             <div class="input-group">
                 <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
-                <span class="input-group-btn"><button class="btn btn-success" type="submit">Add</button></span>
+                <span class="input-group-btn"><button class="btn btn-info btn-lg" type="submit">Add</button></span>
             </div>
         </form>
     </div>
     {% endif %} {% endfor %}
 
     <!--Product Items-->
-    <div class="col-12">
-        <h4 class="pt-5 text-center text-jpt-red">JPT Products:</h4>
+    <div class="col-10 offset-1">
+        <h4 class="pt-5 text-jpt-red">JPT Products:</h4>
         <hr class="py-3 border-white">
     </div>
     {% for product in products %} {% if product.product_type == 'item' %}
-    <div class="col-8 offset-1">
-        <h5>{{ product.name }}</h5>
-        <p class="product-description">{{ product.description|linebreaks }}</p>
-        <p class="text-right">£{{ product.price }} - <span class="text-jpt-red">SESSION PRICE</span></p>
+    <div class="py-3 col-8 offset-1">
+        <h4 class="jpt-product-name">{{ product.name }}</h4>
+        <p class="jpt-product-description">{{ product.description|linebreaks }}</p>
     </div>
-    <div class="col-2">
+    <div class="py-3 col-2">
+        <p id="jpt-product-cost" class="py-3 text-jpt-red">£{{ product.price }}</p>
         <form method="post" action="{% url 'add_to_cart' product.id %}">
             {% csrf_token %}
             <div class="input-group">
                 <input name="quantity" type="number" min="1" max="999" class="form-control" placeholder="Quantity">
-                <span class="input-group-btn"><button class="btn btn-success" type="submit">Add</button></span>
+                <span class="input-group-btn"><button class="btn btn-info" type="submit">Add</button></span>
             </div>
         </form>
     </div>

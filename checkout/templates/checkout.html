@@ -1,4 +1,4 @@
-{% extends 'base.html' %} {% load static %} {% load bootstrap_tags %} {% block head_js %}
+{% extends 'base.html' %} {% load static %} {% load bootstrap_tags %} {% block script %}
 
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript">
@@ -8,7 +8,7 @@
 </script>
 <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
 
-{% endblock %} {% block content %}
+{% endblock script %} {% block content %}
 
 <!--Header and Image-->
 <div class="parallax" style="background-image: url({% static 'img/jpt-car-deadlift.jpg' %}">
@@ -18,33 +18,30 @@
 </div>
 
 <!--Cart for checkout-->
-<div class="row bg-jpt-black text-jpt-white">
+<div class="row py-4 bg-jpt-black text-jpt-white jpt-products">
 
-    <div class="col-12">
-        <h4 class="pt-5 text-center text-jpt-red">Checkout</h4>
-        <hr class="py-3 border-white">
-    </div>
-
+    <!--Product PT Session Tokens-->
     {% for item in cart_items %}
-    <div class="col-8 offset-1">
-        <h5>{{ item.product.name }}</h5>
-        <p>£{{ item.product.price }} - <span class="text-jpt-red">SESSION PRICE</span></p>
+    <div class="py-3 col-8 offset-1">
+        <h4 class="jpt-product-name">{{ item.product.name }}</h4>
     </div>
     <div class="col-2">
+        <p id="jpt-product-cost" class="py-3 text-jpt-red">£{{ item.product.price }}</p>
         <form method="post" action="{% url 'adjust_cart' item.id %}">
             {% csrf_token %}
             <div class="input-group">
                 <input name="quantity" type="number" min="0" max="999" class="form-control" placeholder="{{item.quantity}}">
-                <span class="input-group-btn"><button class="btn btn-success" type="submit">Amend</button></span>
+                <span class="input-group-btn"><button class="btn btn-info btn-lg" type="submit">Amend</button></span>
             </div>
         </form>
     </div>
     {% endfor %}
 
-    <div class="col-10 offset-1">
-        <h4 class="pt-4 text-center text-jpt-red">Total</h4>
-        <p>£{{ total }}</p>
-        <a href="/" class="btn btn-success" role="button">Checkout</a>
+    <div class="py-4 col-10 offset-1 text-right">
+        <hr class="pt-3 border-white">
+        <h4 class="pb-4">Total</h4>
+        <p id="jpt-product-total">£{{ total }}</p>
+        <a href="{% url 'checkout' %}" class="btn btn-info btn-lg" role="button">Checkout</a>
     </div>
 
 </div>
@@ -64,8 +61,8 @@
                 {{ payment_form | as_bootstrap }}
             </div>
             {% csrf_token %}
-            <div class="form-group">
-                <input class=" btn btn-dark" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
+            <div class="form-group text-center">
+                <input class=" btn btn-info btn-lg" id="submit_payment_btn" name="commit" type="submit" value="Submit Payment">
             </div>
         </form>
     </div>

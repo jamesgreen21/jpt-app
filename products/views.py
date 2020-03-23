@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.decorators import login_required
 from django.views.generic import (
     ListView, 
     CreateView,
@@ -9,12 +10,18 @@ from django.views.generic import (
 from .models import Product
 
 
-class ProductsListView(ListView):
+class ProductsListView(LoginRequiredMixin, ListView):
     """
     List view of all products available to users 
     """
     model = Product
     context_object_name = 'products'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Personal Training & Products'
+        context['nbar'] = 'products'
+        return context
 
 
 class ProductsCreateView(LoginRequiredMixin, CreateView):

@@ -3,7 +3,7 @@
 <!--Header and Image-->
 <div class="parallax" style="background-image: url({% static 'img/jpt-car-deadlift2.jpg' %}">
     <div class="text-center text-jpt-white bg-jpt-darkimage jpt-page-header">
-        <h5 class="">Log In</h5>
+        <h5 class="">Login</h5>
     </div>
 </div>
 
@@ -13,7 +13,7 @@
         <form method="POST">
             {% csrf_token %}
             <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Log In:</legend>
+                <legend class="border-bottom mb-4">Login:</legend>
                 {{ form|as_bootstrap }}
                 <p>Forgotton password? <a class="ml-2 jpt-link-red" href="{% url 'password_reset' %}">Reset you password</a></p>
             </fieldset>

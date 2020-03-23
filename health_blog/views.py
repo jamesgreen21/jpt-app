@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.utils import timezone
 from .models import Blog, Answer
 from .forms import BlogPostForm, QuestionForm, AnswerForm
 from accounts.models import Profile
 
 
+@login_required
 def get_blogs(request):
     """
     Detail view of a single Blog Post object based on the post ID (pk) via 
@@ -34,6 +36,7 @@ def get_blogs(request):
     return render(request, "blog_list.html", context)
 
 
+@login_required
 def blog_detail(request, pk):
     """
     Detail view of a single Blog Post object based on the post ID (pk) via 
@@ -51,6 +54,7 @@ def blog_detail(request, pk):
     return render(request, "blog_detail.html", context)
 
 
+@login_required
 def create_or_edit_blog(request, pk=None):
     """
     Create a view that allows the user to create or edit Blogs via 
@@ -75,6 +79,7 @@ def create_or_edit_blog(request, pk=None):
     return render(request, 'blog_form.html', context)
 
 
+@login_required
 def delete_blog(request, pk):
     """
     A view for deleting a blog 
@@ -85,6 +90,7 @@ def delete_blog(request, pk):
     return redirect(get_blogs)
 
 
+@login_required
 def create_or_edit_answers(request, pk=None):
     """
     Create a view that allows the admin to responde to the user questions
@@ -111,6 +117,7 @@ def create_or_edit_answers(request, pk=None):
     return render(request, 'answer_form.html', context)
 
 
+@login_required
 def delete_question(request, pk):
     """
     A view for deleting a question 

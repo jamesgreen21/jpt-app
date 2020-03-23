@@ -38,7 +38,7 @@
                     <a class="nav-link {% if nbar == 'blog' %}jpt-nav-active{% endif %}" href="{% url 'jpt-blogs' %}">Health & Well-being Blog</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {% if nbar == 'products' %}jpt-nav-active{% endif %}" href="{% url 'products' %}">Buy PT Sessions & Products</a>
+                    <a class="nav-link {% if nbar == 'products' %}jpt-nav-active{% endif %}" href="{% url 'products' %}">Personal Training & Products</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {% if nbar == 'cart' %}jpt-nav-active{% endif %}" href="{% url 'view_cart' %}">
@@ -50,20 +50,30 @@
                 </li>
                 {% if user.is_authenticated %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'user-profile' %}">
-                        Profile{% if nbar == 'profile' %} <span class="sr-only">(current)</span>{% endif %}
-                        <label class="badge badge-light bg-jpt-red" data-toggle="tooltip" data-placement="bottom" title="Session Tokens">{{ user.profile.session_token }}</label>
+                    <a class="nav-link {% if nbar == 'profile' %}jpt-nav-active{% endif %}" href="{% url 'user-profile' %}">
+                        {{ user.username }}
+                        {% if user.profile.session_token == 0 %}
+                            <label class="badge badge-light bg-jpt-red" data-toggle="tooltip" data-placement="bottom" title="Session Tokens">{{ user.profile.session_token }}</label>
+                        {% else %}
+                            <label class="badge badge-light bg-jpt-teal" data-toggle="tooltip" data-placement="bottom" title="Session Tokens">{{ user.profile.session_token }}</label>
+                        {% endif %}
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'user-logout' %}">Logout{% if nbar == 'logout' %} <span class="sr-only">(current)</span>{% endif %}</a>
+                    <a class="nav-link {% if nbar == 'logout' %}jpt-nav-active{% endif %}" href="{% url 'user-logout' %}">
+                        Logout
+                    </a>
                 </li>
                 {% else %}
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'user-login' %}">Login{% if nbar == 'login' %} <span class="sr-only">(current)</span>{% endif %}</a>
+                    <a class="nav-link {% if nbar == 'login' %}jpt-nav-active{% endif %}" href="{% url 'user-login' %}">
+                        Login
+                    </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{% url 'user-register' %}">Register{% if nbar == 'register' %} <span class="sr-only">(current)</span>{% endif %}</a>
+                    <a class="nav-link {% if nbar == 'register' %}jpt-nav-active{% endif %}" href="{% url 'user-register' %}">
+                        Register
+                    </a>
                 </li>
                 {% endif %}
             </ul>
@@ -141,7 +151,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <script type="text/javascript" src="{% static 'js/script.js' %}"></script>
-    {% block head_js %} {% endblock head_js %}
+    {% block script %} {% endblock script %}
 
 </body>
 

@@ -19,7 +19,7 @@ def register(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            messages.success(request, 'Your profile has been successfully updated.')
+            messages.success(request, 'Registration complete. Let the fun begin!')
     else:
         user_form = UserRegisterForm()
         profile_form = ProfileRegisterForm()
@@ -45,7 +45,7 @@ def profile(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
-            messages.success(request, 'Profile details updated.')
+            messages.success(request, 'Your profile has been successfully updated.')
             return redirect('user-profile')
 
     else:
@@ -53,6 +53,8 @@ def profile(request):
         profile_form = ProfileRegisterForm(instance=request.user.profile)
 
     context = {
+        'title': 'Profile',
+        'nbar': 'profile',
         'user_form': user_form,
         'profile_form': profile_form
     }
