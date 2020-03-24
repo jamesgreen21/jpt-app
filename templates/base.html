@@ -81,8 +81,7 @@
     <!--Django Messages-->
     {% if messages %}
     <div class="alert text-jpt-white jpt-alert" role="alert">
-        {% for message in messages %}
-        {% if 'safe' in message.tags %}
+        {% for message in messages %} {% if 'safe' in message.tags %}
         <div class="message-bubble">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="text-center jpt-info">Checkout</h4>
@@ -94,8 +93,7 @@
             <h4 class="text-center jpt-{% if message.tags %}{{ message.tags }}{% else %}general{% endif %}">{{ message.tags }}</h4>
             <h5 class="text-center">{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %} {{ message }}</h5>
         </div>
-        {% endif %}
-        {% endfor %}
+        {% endif %} {% endfor %}
     </div>
     {% endif %}
 
@@ -104,47 +102,62 @@
         {% block content %}{% endblock %}
     </div>
 
-    <!--Footer-->
+    <!--JPT Footer Banner-->
     <div class="container-fluid">
-        <!--JPT Promo Banner-->
-        {% if user.is_authenticated %}
-        <a href="{% url 'products' %}">
-            <div class="bg-jpt-black bg-jpt-teal text-jpt-white jpt-promo-primary">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="jpt-promo-heading">
-                            <h2 class="jpt-promo">Book a session today!</h2>
-                        </div>
-                    </div>
+        <div class="bg-jpt-teal text-jpt-black footer-banner">
+            <div class="row">
+                <div class="col 10 col-md-7 offset-1">
+                    <h2>Hang on! Join now, get a free PT session</h2>
+                </div>
+                <div class="col 10 col-md-3 text-right">
+                    <a class="btn btn-outline-light btn-lg" type="button" href="{% url 'user-register' %}">JOIN</a>
                 </div>
             </div>
-        </a>
-        {% else %}
-        <a href="{% url 'user-register' %}">
-            <div class="bg-jpt-black bg-jpt-teal text-jpt-white jpt-promo-primary">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="jpt-promo-heading">
-                            <h2 class="jpt-promo">Sign up today!</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </a>
-        {% endif %}
-        <div class="bg-jpt-black bg-jpt-black text-jpt-white jpt-footer">
+        </div>
+    </div>
+
+    <!--JPT Footer and Links-->
+    <div class="container-fluid">
+        <div class="bg-jpt-black bg-jpt-black text-jpt-white footer-container">
             <div class="row">
                 <div class="col-10 col-md-5 offset-1 py-4">
                     <h1 class="pt-4">JPT</h1>
                     <h3 class="pt-4">James Green</h3>
                     <h6 class="text-jpt-red">Personal Trainer</h6>
-                    <p class="py-2">Experienced Personal Trainer, combining weight training, boxing and conditioning work into getting the results you want!</p>
-                    <a class="jpt-link-red" href="{% url 'user-register' %}">Get started today!</a>
+                    <p class="py-2">Experienced Persnal Trainer, combining weight training, boxing and conditioning work into getting the results you want!</p>
+
+                    <div class="pt-4">
+                        <h4 class="pt-2">Site Links</h4>
+                        <ul class="list-unstyled">
+                            <li><a class="jpt-link-red" href="{% url 'home' %}">Home</a></li>
+                            <li><a class="jpt-link-red" href="{% url 'jpt-blogs' %}">Health & Well-being Blog</a></li>
+                            <li><a class="jpt-link-red" href="{% url 'products' %}">Personal Training & Products</a></li>
+                            <li><a class="jpt-link-red" href="{% url 'view_cart' %}">
+                                <i class="fa fa-shipping-cart"></i>Cart
+                                {% if product_count > 0 %}
+                                    <label class="badge badge-warning">{{ product_count }}</label>
+                                {% endif %}
+                            </a></li>
+                            {% if user.is_authenticated %}
+                                <li><a class="jpt-link-red" href="{% url 'user-profile' %}">{{ user.username }}
+                                {% if user.profile.session_token == 0 %}
+                                <label class="badge badge-light bg-jpt-red">{{ user.profile.session_token }}</label>
+                                {% else %}        
+                                <label class="badge badge-light bg-jpt-teal">{{ user.profile.session_token }}</label>
+                                {% endif %}
+                                </a></li>
+                                <li><a class="jpt-link-red" href="{% url 'user-logout' %}">Logout</a></li>
+                            {% else %}
+                                <li><a class="jpt-link-red" href="{% url 'user-login' %}"></a></li>
+                                <li><a class="jpt-link-red" href="{% url 'user-register' %}">Register</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
                 </div>
                 <div class="text-center col-10 offset-1 col-md-4 offset-md-2 jpt-social-icons py-4">
-                    <a target="_blank" href="https://www.facebook.com/"><i class="fa fa-facebook-square text-jpt-white"></i></a>
-                    <a target="_blank" href="https://www.instagram.com/"><i class="fa fa-instagram text-jpt-white"></i></a>
-                    <a target="_blank" href="https://www.youtube.com/"><i class="fa fa-youtube text-jpt-white"></i></a>
+                    <a class="px-3" target="_blank" href="https://www.facebook.com/"><i class="fa fa-facebook-square text-jpt-white"></i></a>
+                    <a class="px-3" target="_blank" href="https://www.instagram.com/"><i class="fa fa-instagram text-jpt-white"></i></a>
+                    <a class="px-3" target="_blank" href="https://www.youtube.com/"><i class="fa fa-youtube text-jpt-white"></i></a>
                 </div>
             </div>
         </div>

@@ -324,6 +324,19 @@ p {
     letter-spacing: 5px;
 }
 
+.footer-banner {
+    display: table-cell;
+    height: 200px;
+    width: 100vw;
+    vertical-align: middle;
+}
+
+.footer-banner h2 {
+    font-size: 40px;
+    font-weight: 800;
+    font-family: 'Open Sans';
+}
+
 /* --------------------------------------------------------------------------------- */
 
 .animation-target {
@@ -674,15 +687,34 @@ p {
 
 /*----------------------------------- Footer -------------------------------------*/
 
-.jpt-footer {
+.footer-container {
     padding-top: 20px;
-    min-height: 300px;
+    display: table-cell;
+    min-height: 500px;
+    width: 100vw;
+    vertical-align: middle;
 }
 
 .jpt-social-icons a i {
     font-size: 50px;
 }
 
+.list-unstyled li {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.list-unstyled a {
+    font-size: 20px;
+}
+
+.jpt-icon-red {
+    transition: background-color ease-out .5s;
+}
+
+.jpt-icon-red:hover {
+    background-color: #de0000;
+}
 
 /*----------------------------------- Footer -------------------------------------*/
 
@@ -700,7 +732,23 @@ p {
 
 /*// Large devices (desktops, 992px and up)*/
 
-@media (min-width: 992px) {}
+@media (min-width: 992px) {
+    .jpt-banner {
+        line-height: 30px;
+        font-size: 30px;
+        font-weight: 800;
+        padding-top: 25px;
+        padding-bottom: 25px;
+    }
+
+    .jpt-promo-heading h2 {
+        display: inline-block;
+        line-height: 30px;
+        font-size: 30px;
+        font-weight: 200;
+        letter-spacing: 10px;
+    }
+}
 
 /*// Extra large devices (large desktops, 1200px and up)*/
 

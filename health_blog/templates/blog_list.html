@@ -18,20 +18,6 @@
     </div>
 </div>
 
-{% else %}
-
-<!--Search a product-->
-<div class="row bg-jpt-black">
-    <div class="col-10 offset-1">
-        <form class="text-jpt-white jpt-navbar-adjust" action="{% url 'search' %}" method="GET">
-            {% csrf_token %}
-            <legend class="border-bottom mb-4">Search Blogs</legend>
-            <input type="text" class="form-control" name="q" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
-            <button type="submit" class="btn btn-dark">Search</button>
-        </form>
-    </div>
-</div>
-
 {% endif %}
 
 <!--Blog post cards-->
@@ -56,18 +42,17 @@
 <!--Ask a question-->
 <div class="row py-4 bg-jpt-black">
     <div class="col-10 offset-1">
-        <form class="text-jpt-white" method="POST">
+        <form class="text-jpt-white jpt-navbar-adjust" action="{% url 'search' %}" method="GET">
             {% csrf_token %}
-            <fieldset class="form-group">
-                <legend class="border-bottom mb-4">Ask James a question...</legend>
-                {{ question_form|as_bootstrap }}
-            </fieldset>
-            <div class="form-group text-center">
-                <button type="submit" class="btn btn-dark btn-lg">Submit</button>
+            <legend class="border-bottom mb-4">Search all quetions</legend>
+            <input type="text" class="form-control" name="q" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            <div class="form-controls py-2 text-center">
+                <button type="submit" class="btn btn-dark btn-lg">Search</button>
             </div>
         </form>
     </div>
 </div>
+
 
 <!--Q&A Banner-->
 <div class="row bg-jpt-black">
@@ -87,5 +72,21 @@
         {% endfor %}
     </div>
 </div>
+
+<!--Search for a question -->
+<div class="row py-4 bg-jpt-black">
+    <div class="col-10 offset-1">
+        <form class="text-jpt-white" method="POST" action="{% url 'jpt-blogs' %}" >
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Ask James a question...</legend>
+                {{ question_form|as_bootstrap }}
+            </fieldset>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-dark btn-lg">Submit</button>
+            </div>
+        </form>
+    </div>
+
 
 {% endblock content %}

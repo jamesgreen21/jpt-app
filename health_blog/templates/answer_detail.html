@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% load static %}{% load bootstrap_tags %} {% block content %}
+
+<!--Header and Image-->
+<div class="parallax" style="background-image: url({% static 'img/jpt-dumbbells.jpg' %}">
+    <div class="text-center text-jpt-white bg-jpt-darkimage jpt-page-header">
+        <h5 class="">Search</h5>
+    </div>
+</div>
+
+<!--Searched Question detail-->
+<div class="bg-jpt-black">
+    <div class="text-jpt-white jpt-testimonial">
+        <a class="jpt-link-red" href="{% url 'jpt-blogs' %}"><i class="fa fa-chevron-left"></i> Go Back</a>
+        {% for question in questions %}
+        <div class="speech-bubble">
+            <h4 class="text-jpt-red">{{ question.content }}</h4>
+            <h5>{{ question.answer.content }}</h5>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+{% endblock content %}
