@@ -13,10 +13,11 @@
 <div class="row">
     <div class="col-12 bg-jpt-black text-center py-3">
         <h4 class="text-jpt-red">EDIT MODE</h4>
-        <a class="btn btn-dark" href="{% url 'new-blog' %}" role="button">Add Blog</a>
-        <a class="btn btn-light" href="{% url 'blog_questions' 0 %}" role="button">Go to Q&A</a>
+        <a class="btn btn-dark bnt-lg" href="{% url 'new-blog' %}" role="button">Add Blog</a>
+        <a class="btn btn-light bnt-lg" href="{% url 'blog_questions' 0 %}" role="button">Go to Q&A</a>
     </div>
 </div>
+
 {% else %}
 
 <!--Search a product-->

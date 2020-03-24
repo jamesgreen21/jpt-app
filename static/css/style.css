@@ -106,7 +106,7 @@ p {
 }
 
 #navbar {
-    transition: background-color ease-out .5s;
+    transition: all ease-out .4s;
 }
 
 .navbar-nav {

@@ -49,7 +49,13 @@ def checkout(request):
                 messages.error(request, "Your card was declined!")
             
             if customer.paid:
-                # user = Profile, session_token
+                cart_tokens = 0
+                for id, session_token in cart.items():
+                    product = get_object_or_404(Product, pk=id)
+                    cart_tokens += product.session_token
+                user = Profile.objects.get(pk=request.user.id)
+                user.session_token += cart_tokens #Cart Tokens
+                user.save()
                 messages.success(request, "You have successfully paid")
                 request.session['cart'] = {}
                 return redirect(reverse('products'))

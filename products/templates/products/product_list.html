@@ -7,6 +7,18 @@
     </div>
 </div>
 
+{% if request.user.is_superuser %}
+
+<!--Admin log-in, edit mode-->
+<div class="row">
+    <div class="col-12 bg-jpt-black text-center py-3">
+        <h4 class="text-jpt-red">EDIT MODE</h4>
+        <a class="btn btn-dark bnt-lg" href="{% url 'new-product' %}" role="button">Add Product</a>
+    </div>
+</div>
+
+{% endif %}
+
 <!--Cart for checkout-->
 <div class="row pb-4 bg-jpt-black text-jpt-white jpt-products">
 
@@ -19,6 +31,10 @@
     <div class="py-3 col-10 offset-1 col-lg-8">
         <h4 class="jpt-product-name">{{ product.name }}</h4>
         <p class="jpt-product-description">{{ product.description|linebreaks }}</p>
+        {% if request.user.is_superuser %}
+            <a class="btn btn-dark bnt-lg" href="{% url 'edit-product' product.id %}" role="button">Edit Product</a>
+            <a class="btn btn-danger bnt-lg" href="{% url 'delete-product' product.id %}" role="button">Delete Product</a>
+        {% endif %}
     </div>
     <div class="col-10 offset-1 offset-lg-0 col-lg-2">
         <p id="jpt-product-cost" class="py-3 text-jpt-red">£{{ product.price }}</p>
@@ -38,9 +54,18 @@
         <hr class="py-3 border-white">
     </div>
     {% for product in products %} {% if product.product_type == 'item' %}
-    <div class="py-3 col-10 offset-1 col-lg-8">
+    <div class="py-3 col-10 offset-1 col-lg-4">
         <h4 class="jpt-product-name">{{ product.name }}</h4>
         <p class="jpt-product-description">{{ product.description|linebreaks }}</p>
+        {% if request.user.is_superuser %}
+            <a class="btn btn-dark bnt-lg" href="{% url 'edit-product' product.id %}" role="button">Edit Product</a>
+            <a class="btn btn-danger bnt-lg" href="{% url 'delete-product' product.id %}" role="button">Delete Product</a>
+        {% endif %}
+    </div>
+    <div class="py-3 col-10 offset-1 col-lg-3">
+        <div class="card">
+            <div class="card jpt-img-container jpt-img-tile" style="background-image: url({{ product.image.url }})"></div>
+        </div>
     </div>
     <div class="col-10 offset-1 offset-lg-0 col-lg-2">
         <p id="jpt-product-cost" class="py-3 text-jpt-red">£{{ product.price }}</p>

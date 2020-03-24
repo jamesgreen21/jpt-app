@@ -10,28 +10,32 @@
 <!--Profile Form-->
 <div class="row pt-4 bg-jpt-black">
     <div class="col-10 offset-1 text-jpt-white">
-        <div class="jumbotron bg-jpt-black text-jpt-white">
-            <div class="media">
-                <img src="{{ user.profile.image.url }}" class="align-self-start mr-3 rounded-circle jpt-profile-img" alt="...">
-                <div class="media-body">
-                    <h5 class="mt-0">{{ user.username }}</h5>
-                    <p class="text-secondary">{{ user.email }}</p>
-                    <a class="jpt-link-red" href="{% url 'products' %}">
-                        <p data-toggle="tooltip" data-placement="left" title="Get Tokens">Session Tokens: {{ user.profile.session_token }}</p>
-                    </a>
-                </div>
+        <div class="media py-4">
+            <img src="{{ user.profile.image.url }}" class="align-self-start mr-3 rounded-circle jpt-profile-img" alt="...">
+            <div class="media-body">
+                <h5 class="mt-0">{{ user.username }}</h5>
+                <p class="text-secondary">{{ user.email }}</p>
+                <a class="jpt-link-red" href="{% url 'products' %}">
+                    <p data-toggle="tooltip" data-placement="left" title="Get Tokens">Session Tokens: {{ user.profile.session_token }}</p>
+                </a>
+
             </div>
-            <form class="pt-4 jpt-form" method="POST" enctype="multipart/form-data">
-                {% csrf_token %}
-                <fieldset class="form-group">
-                    <legend class="border-bottom mb-4">Profile Information</legend>
-                    {{ user_form|as_bootstrap }} {{ profile_form|as_bootstrap }}
-                </fieldset>
-                <div class="form-group text-center">
-                    <button class="btn btn-info btn-lg" type="submit">Update</button>
-                </div>
-            </form>
         </div>
+    </div>
+    <div class="col-10 offset-1 text-jpt-white">
+        <p>If you want to change your password <a class="ml-2 jpt-link-red" href="{% url 'password_change' %}">click here</a></p>
+    </div>
+    <div class="col-10 offset-1 text-jpt-white">
+        <form class="pt-4 jpt-form" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Profile Information</legend>
+                {{ user_form|as_bootstrap }} {{ profile_form|as_bootstrap }}
+            </fieldset>
+            <div class="form-group text-center">
+                <button class="btn btn-info btn-lg" type="submit">Update</button>
+            </div>
+        </form>
     </div>
 </div>
 

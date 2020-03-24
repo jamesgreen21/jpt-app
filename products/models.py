@@ -1,3 +1,4 @@
+from django.shortcuts import reverse
 from django.db import models
 
 
@@ -22,3 +23,6 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('products')

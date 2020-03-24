@@ -1,4 +1,5 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, reverse, get_object_or_404
+from django.contrib import messages
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.decorators import login_required
 from django.views.generic import (
@@ -52,3 +53,14 @@ class ProductsUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def test_func(self):
         return True
+
+
+@login_required
+def delete_product(request, pk):
+    """
+    A view for deleting a blog 
+    """
+    product = get_object_or_404(Product, pk=pk)
+    product.delete()
+    messages.success(request, 'The product was deleted')
+    return redirect('products')
