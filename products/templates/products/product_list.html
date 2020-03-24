@@ -8,7 +8,7 @@
 </div>
 
 <!--Cart for checkout-->
-<div class="row bg-jpt-black text-jpt-white jpt-products">
+<div class="row pb-4 bg-jpt-black text-jpt-white jpt-products">
 
     <!--Product PT Session Tokens-->
     <div class="col-10 offset-1">
@@ -16,11 +16,11 @@
         <hr class="py-3 border-white">
     </div>
     {% for product in products %} {% if product.product_type == 'class' %}
-    <div class="py-3 col-8 offset-1">
+    <div class="py-3 col-10 offset-1 col-lg-8">
         <h4 class="jpt-product-name">{{ product.name }}</h4>
         <p class="jpt-product-description">{{ product.description|linebreaks }}</p>
     </div>
-    <div class="col-2">
+    <div class="col-10 offset-1 offset-lg-0 col-lg-2">
         <p id="jpt-product-cost" class="py-3 text-jpt-red">£{{ product.price }}</p>
         <form method="post" action="{% url 'add_to_cart' product.id %}">
             {% csrf_token %}
@@ -38,11 +38,11 @@
         <hr class="py-3 border-white">
     </div>
     {% for product in products %} {% if product.product_type == 'item' %}
-    <div class="py-3 col-8 offset-1">
+    <div class="py-3 col-10 offset-1 col-lg-8">
         <h4 class="jpt-product-name">{{ product.name }}</h4>
         <p class="jpt-product-description">{{ product.description|linebreaks }}</p>
     </div>
-    <div class="py-3 col-2">
+    <div class="col-10 offset-1 offset-lg-0 col-lg-2">
         <p id="jpt-product-cost" class="py-3 text-jpt-red">£{{ product.price }}</p>
         <form method="post" action="{% url 'add_to_cart' product.id %}">
             {% csrf_token %}

@@ -12,9 +12,7 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Open+Sans|Raleway|Sriracha&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" />
-    
-    {% if title %} 
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css" /> {% if title %}
     <title>JPT - {{ title }}</title>
     {% else %}
     <title>JPT</title>
@@ -84,11 +82,19 @@
     {% if messages %}
     <div class="alert text-jpt-white jpt-alert" role="alert">
         {% for message in messages %}
+        {% if 'safe' in message.tags %}
         <div class="message-bubble">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="jpt-{% if message.tags %}{{ message.tags }}{% else %}general{% endif %}">{{ message.tags }}</h4>
-            <h5>{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %} {{ message }}</h5>
+            <h4 class="text-center jpt-info">Checkout</h4>
+            <h5 class="text-center">{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %} {{ message|safe }}</h5>
         </div>
+        {% else %}
+        <div class="message-bubble">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            <h4 class="text-center jpt-{% if message.tags %}{{ message.tags }}{% else %}general{% endif %}">{{ message.tags }}</h4>
+            <h5 class="text-center">{% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}Important: {% endif %} {{ message }}</h5>
+        </div>
+        {% endif %}
         {% endfor %}
     </div>
     {% endif %}
@@ -102,48 +108,47 @@
     <div class="container-fluid">
         <!--JPT Promo Banner-->
         {% if user.is_authenticated %}
-        <a href="{% url 'user-register' %}">
-            <div class="row bg-jpt-teal text-jpt-white jpt-promo-primary">
-                <div class="col-12">
-                    <div class="jpt-promo-heading">
-                        <h2 class="jpt-promo">Book a session today!</h2>
+        <a href="{% url 'products' %}">
+            <div class="bg-jpt-black bg-jpt-teal text-jpt-white jpt-promo-primary">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="jpt-promo-heading">
+                            <h2 class="jpt-promo">Book a session today!</h2>
+                        </div>
                     </div>
                 </div>
             </div>
         </a>
         {% else %}
         <a href="{% url 'user-register' %}">
-            <div class="row bg-jpt-teal text-jpt-white jpt-promo-primary">
-                <div class="col-12">
-                    <div class="jpt-promo-heading">
-                        <h2 class="jpt-promo">Sign up today!</h2>
+            <div class="bg-jpt-black bg-jpt-teal text-jpt-white jpt-promo-primary">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="jpt-promo-heading">
+                            <h2 class="jpt-promo">Sign up today!</h2>
+                        </div>
                     </div>
                 </div>
             </div>
         </a>
         {% endif %}
-        <div class="row bg-jpt-black text-jpt-white jpt-footer">
-            <div class="col-12 col-md-5 offset-md-1">
-                <h1 class="pt-4">JPT</h1>
-                <h3 class="pt-4">James Green</h3>
-                <h6 class="text-jpt-red">Personal Trainer</h6>
-                <p class="py-2">Experienced Personal Trainer, combining weight training, boxing and conditioning work into getting the results you want!</p>
-                <a class="jpt-link-red" href="{% url 'user-register' %}">Get started today!</a>
-            </div>
-            <div class="text-center col-12 col-md-4 offset-md-2 jpt-social-icons">
-                <div class="pt-4">
-                    <a target="_blank" href="https://www.facebook.com/"><i class="fa fa-facebook-square text-jpt-white"></i></a>
+        <div class="bg-jpt-black bg-jpt-black text-jpt-white jpt-footer">
+            <div class="row">
+                <div class="col-10 col-md-5 offset-1 py-4">
+                    <h1 class="pt-4">JPT</h1>
+                    <h3 class="pt-4">James Green</h3>
+                    <h6 class="text-jpt-red">Personal Trainer</h6>
+                    <p class="py-2">Experienced Personal Trainer, combining weight training, boxing and conditioning work into getting the results you want!</p>
+                    <a class="jpt-link-red" href="{% url 'user-register' %}">Get started today!</a>
                 </div>
-                <div class="pt-2">
+                <div class="text-center col-10 offset-1 col-md-4 offset-md-2 jpt-social-icons py-4">
+                    <a target="_blank" href="https://www.facebook.com/"><i class="fa fa-facebook-square text-jpt-white"></i></a>
                     <a target="_blank" href="https://www.instagram.com/"><i class="fa fa-instagram text-jpt-white"></i></a>
-                    <div class="pt-2">
-                        <a target="_blank" href="https://www.youtube.com/"><i class="fa fa-youtube text-jpt-white"></i></a>
-                    </div>
+                    <a target="_blank" href="https://www.youtube.com/"><i class="fa fa-youtube text-jpt-white"></i></a>
                 </div>
             </div>
         </div>
     </div>
-
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

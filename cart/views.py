@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect, reverse
+from django.utils.html import format_html
+from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 
@@ -7,7 +9,11 @@ def view_cart(request):
     """
     A View that renders the cart contents page
     """
-    return render(request, "cart.html")
+    context = {
+        'title': 'Cart',
+        'nbar': 'cart',
+    }
+    return render(request, "cart.html", context)
 
 
 @login_required
@@ -24,6 +30,10 @@ def add_to_cart(request, id):
         cart[id] = cart.get(id, quantity) 
 
     request.session['cart'] = cart
+    if quantity > 0:
+        message = format_html('Go to cart? <a class="jpt-link-red" href="{}">Click here</a>.', reverse('checkout'))
+        messages.info(request, message, extra_tags='safe')
+
     return redirect(reverse('products'))
 
 

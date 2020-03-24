@@ -52,14 +52,3 @@ class ProductsUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
 
     def test_func(self):
         return True
-
-
-# def supplier_active(request, supplier_id):
-#     """
-#     Check to see if the Supplier is active or deactivated and return the 
-#     opposite
-#     """
-#     item = Suppliers.objects.get(pk=supplier_id)
-#     item.is_active = False if item.is_active else True
-#     item.save()
-#     return redirect('suppliers')

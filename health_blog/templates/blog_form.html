@@ -17,19 +17,17 @@
 
 <!--Blog Form-->
 <div class="row bg-jpt-black">
-    <div class="col-10 offset-1 col-md-8 offset-md-2">
-        <div class="bg-jpt-black text-jpt-white">
-            <a class="text-jpt-red" href="{% url 'jpt-blogs' %}"><i class="fa fa-chevron-left"></i> Go Back</a>
-            <h4 class="text-center py-3">Add Blog</h4>
-            <form class="jpt-form" method="POST" enctype="multipart/form-data">
-                {% csrf_token %} {{ form | as_bootstrap }}
-                <br>
-                <div class="text-center pb-4">
-                    <a id="jpt-link-white" class="btn btn-danger" href="{% url 'jpt-blogs' %}" role="button">Cancel</a>
-                    <button class="btn btn-dark" type="submit" name="action">Save</button>
-                </div>
-            </form>
-        </div>
+    <div class="col-10 offset-1 col-md-8 offset-md-2 text-jpt-white">
+        <a class="jpt-link-red" href="{% url 'jpt-blogs' %}"><i class="fa fa-chevron-left"></i> Go Back</a>
+        <h4 class="text-center py-3">Add Blog</h4>
+        <form class="jpt-form" method="POST" enctype="multipart/form-data">
+            {% csrf_token %} {{ form | as_bootstrap }}
+            <br>
+            <div class="text-center pb-4">
+                <a id="jpt-link-white" class="btn btn-danger" href="{% url 'jpt-blogs' %}" role="button">Cancel</a>
+                <button class="btn btn-dark" type="submit" name="action">Save</button>
+            </div>
+        </form>
     </div>
 </div>
 

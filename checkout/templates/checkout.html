@@ -18,14 +18,14 @@
 </div>
 
 <!--Cart for checkout-->
-<div class="row py-4 bg-jpt-black text-jpt-white jpt-products">
+<div class="row pb-4 bg-jpt-black text-jpt-white jpt-products">
 
     <!--Product PT Session Tokens-->
     {% for item in cart_items %}
-    <div class="py-3 col-8 offset-1">
+    <div class="py-3 col-10 offset-1 col-lg-8">
         <h4 class="jpt-product-name">{{ item.product.name }}</h4>
     </div>
-    <div class="col-2">
+    <div class="col-10 offset-1 offset-lg-0 col-lg-2">
         <p id="jpt-product-cost" class="py-3 text-jpt-red">£{{ item.product.price }}</p>
         <form method="post" action="{% url 'adjust_cart' item.id %}">
             {% csrf_token %}

@@ -75,7 +75,7 @@ p {
 }
 
 .text-jpt-white {
-    color: #fafafa !important;
+    color: #fafafa;
 }
 
 .text-jpt-blue {
@@ -89,6 +89,10 @@ p {
 
 /* ------------------------------------- Navbar -------------------------------------- */
 
+.container-fluid {
+    overflow: hidden;
+}
+
 .jpt-nav-primary {
     width: 100%;
     z-index: 1;
@@ -99,6 +103,10 @@ p {
     min-height: 80px;
     background: rgb(17, 17, 17);
     background: linear-gradient(0deg, rgba(17, 17, 17, 0) 0%, rgba(17, 17, 17, 0.3536765047816002) 10%, rgba(17, 17, 17, 0.6) 25%, rgba(17, 17, 17, 0.75) 50%, rgba(17, 17, 17, 0.85) 75%, rgba(17, 17, 17, 1) 90%);
+}
+
+#navbar {
+    transition: background-color ease-out .5s;
 }
 
 .navbar-nav {
@@ -176,12 +184,14 @@ p {
 }
 
 .message-bubble h4 {
+    font-size: 35px;
     padding: 10px;
     font-weight: 600;
     text-transform: capitalize;
 }
 
 .message-bubble h5 {
+    font-size: 20px;
     padding: 10px;
 }
 
@@ -190,7 +200,9 @@ p {
     color: #008080;
 }
 
-.jpt-info {}
+.jpt-info {
+    color: #17a2b8;
+}
 
 .jpt-warning {
     color: #de0000;
@@ -210,19 +222,19 @@ p {
 }
 
 .jpt-headline h2 {
-    font-size: 80px;
+    font-size: 40px;
     font-weight: 800;
     text-align: right;
-    padding-right: 25px;
+    padding-right: 10px;
     text-shadow: -4px 4px 5px rgba(11, 11, 11, 1);
 }
 
 .jpt-headline h3 {
-    font-size: 35px;
+    font-size: 20px;
     font-weight: 600;
     margin-top: -10px;
     text-align: right;
-    padding-right: 25px;
+    padding-right: 10px;
     text-shadow: -4px 4px 5px rgba(11, 11, 11, 1);
 }
 
@@ -233,10 +245,10 @@ p {
 
 .jpt-carousel-container img {
     position: absolute;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    z-index: -1;
+    right: 50%;
+    transform: translateX(50%);
+    min-height: 100%;
+    min-width: 100%;
     filter: brightness(50%);
 }
 
@@ -248,19 +260,19 @@ p {
 }
 
 .jpt-carousel h2 {
-    font-size: 80px;
+    font-size: 40px;
     font-weight: 800;
-    text-align: right;
-    padding-right: 25px;
+    text-align: center;
+    padding-right: 10px;
     text-shadow: -4px 4px 5px rgba(11, 11, 11, 1);
 }
 
 .jpt-carousel h3 {
-    font-size: 35px;
+    font-size: 20px;
     font-weight: 600;
     margin-top: -10px;
-    text-align: right;
-    padding-right: 25px;
+    text-align: center;
+    padding-right: 10px;
     text-shadow: -4px 4px 5px rgba(11, 11, 11, 1);
 }
 
@@ -279,27 +291,24 @@ p {
     transform: translateX(-50%);
 }
 
+
+/* --------------------------- Banners ------------------------- */
+
+.jpt-banner {
+    text-transform: uppercase;
+    line-height: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
 .jpt-promo-primary {
-    padding: 20px;
+    border-bottom: solid #111111 2px;
+    border-top: solid #111111 2px;
+    padding: 25px;
     align-items: center;
-}
-
-.jpt-promo-primary a {
-    margin-left: 10px;
-    padding: 15px;
-    border-radius: 35px;
-    font-size: 20px;
-    font-weight: 500;
-    color: #fafafa;
-    transition: all 0.2s ease-in-out;
-    -moz-transition: all 0.2s ease-in-out;
-    -webkit-transition: all 0.2s ease-in-out;
-    -o-transition: all 0.2s ease-in-out;
-}
-
-.jpt-promo-primary a:hover {
-    background: #fafafa;
-    color: #008080;
 }
 
 .jpt-promo-heading {
@@ -308,25 +317,12 @@ p {
 
 .jpt-promo-heading h2 {
     display: inline-block;
-    line-height: 1em;
-    font-size: 1.5em;
+    line-height: 20px;
+    font-size: 18px;
     font-weight: 200;
     text-transform: uppercase;
-    letter-spacing: 0.5em;
+    letter-spacing: 5px;
 }
-
-
-/* --------------------------- Landing Page - Middle Section ------------------------- */
-
-.jpt-banner {
-    line-height: 1em;
-    font-size: 1.5em;
-    font-weight: 200;
-    text-align: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
-}
-
 
 /* --------------------------------------------------------------------------------- */
 
@@ -457,12 +453,12 @@ p {
 }
 
 .jpt-text {
-    height: 250px;
+    min-height: 200px;
     margin: 0;
-    padding-top: 75px;
-    font-size: 50px;
-    line-height: 50px;
-    font-weight: 300;
+    padding-top: 60px;
+    font-size: 30px;
+    line-height: 30px;
+    font-weight: 400;
     text-transform: capitalize;
 }
 
@@ -490,19 +486,23 @@ p {
     background-size: cover;
 }
 
-.jpt-section1-img {
+.jpt-section-img {
     height: 200px;
     width: 200px;
     border: solid #fafafa 3px;
 }
 
-.jpt-section-img {
+.jpt-section {
     display: table-cell;
     height: 95vh;
     width: 100vw;
     vertical-align: middle;
 }
 
+.jpt-section h3,
+.jpt-section h6 {
+    font-weight: 500;
+}
 
 .bliss-bio {
     padding: 20px;
@@ -647,7 +647,6 @@ p {
     color: #de0000;
 }
 
-
 /*----------------------------------- Products -------------------------------------*/
 
 .jpt-products h4 {
@@ -682,4 +681,58 @@ p {
 
 .jpt-social-icons a i {
     font-size: 50px;
+}
+
+
+/*----------------------------------- Footer -------------------------------------*/
+
+/*// Extra small devices (portrait phones, less than 576px)*/
+
+/*// No media query for `xs` since this is the default in Bootstrap*/
+
+/*// Small devices (landscape phones, 576px and up)*/
+
+@media (min-width: 576px) {}
+
+/*// Medium devices (tablets, 768px and up)*/
+
+@media (min-width: 768px) {}
+
+/*// Large devices (desktops, 992px and up)*/
+
+@media (min-width: 992px) {}
+
+/*// Extra large devices (large desktops, 1200px and up)*/
+
+@media (min-width: 1200px) {
+    .jpt-headline h2 {
+        font-size: 80px;
+        padding-right: 25px;
+    }
+
+    .jpt-headline h3 {
+        font-size: 35px;
+        font-weight: 600;
+        padding-right: 25px;
+    }
+    .jpt-carousel h2 {
+        font-size: 80px;
+        padding-right: 25px;
+    }
+
+    .jpt-carousel h3 {
+        font-size: 35px;
+        padding-right: 25px;
+    }
+    .jpt-text {
+        height: 250px;
+        padding-top: 75px;
+        font-size: 50px;
+        line-height: 50px;
+        font-weight: 600;
+    }
+    .jpt-img-card {
+        width: 50%;
+    }
+
 }

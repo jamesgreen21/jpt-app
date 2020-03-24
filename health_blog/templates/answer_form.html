@@ -8,9 +8,9 @@
 </div>
 
 <!--Q&A - starred questions-->
-<div class="bg-jpt-black">
-    <div class="text-jpt-white jpt-testimonial">
-        {% for answer in all_answers %} {% if edit_answer == answer.id %}
+<div class="row bg-jpt-black">
+    <div class="col-10 offset-1 text-jpt-white">
+        <a class="jpt-link-red" href="{% url 'jpt-blogs' %}"><i class="fa fa-chevron-left"></i> Go Back</a> {% for answer in all_answers %} {% if edit_answer == answer.id %}
         <form class="text-jpt-white" method="POST">
             {% csrf_token %}
             <div class="speech-bubble">
@@ -19,7 +19,7 @@
                     <legend class="border-bottom mb-4">Response:</legend>
                     {{ answer_form|as_bootstrap }}
                 </fieldset>
-                <div class="form-group">
+                <div class="form-group text-center">
                     <button type="submit" class="btn btn-dark">Submit</button>
                 </div>
             </div>
@@ -28,8 +28,10 @@
         <div class="speech-bubble">
             <h4 class="text-jpt-red">{{ answer.question.content }}</h4>
             <h5>{{ answer.content }}</h5>
-            <a class="btn btn-light" href="{% url 'blog_questions' answer.id %}" role="button">Edit</a>
-            <a class="btn btn-danger" href="{% url 'delete_question' answer.id %}" role="button">Delete</a>
+            <div class="form-group text-center">
+                <a class="btn btn-light" href="{% url 'blog_questions' answer.id %}" role="button">Edit</a>
+                <a class="btn btn-danger" href="{% url 'delete_question' answer.id %}" role="button">Delete</a>
+            </div>
         </div>
         {% endif %} {% endfor %}
     </div>

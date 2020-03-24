@@ -36,14 +36,14 @@
 <!--Blog post cards-->
 <div class="row pt-4 bg-jpt-black text-jpt-white">
     {% for blog in blogs %}
-    <div class="col-12 col-md-4 jpt-blog-card">
+    <div class="col-12 col-md-6 col-lg-4 text-center jpt-blog-card">
         <div class="card">
             <div class="card jpt-img-container jpt-img-tile" style="background-image: url({{ blog.image.url }})"></div>
         </div>
         <h4 class="py-4">{{ blog.title }}</h4>
         <p class="py-2">{{ blog.headline }}</p>
-        <a class="py-2 jpt-blog-link" href="{% url 'view-blog' blog.id %}">SEE MORE</a> {% if request.user.is_superuser %}
-        <div class="text-center py-2">
+        <a class="py-2 w-100 text-center jpt-blog-link" href="{% url 'view-blog' blog.id %}">SEE MORE</a> {% if request.user.is_superuser %}
+        <div class="py-2">
             <a class="btn btn-danger" href="{% url 'delete-blog' blog.id %}" role="button">Delete</a>
             <a class="btn btn-dark" href="{% url 'edit-blog' blog.id %}" role="button">Edit</a>
         </div>
@@ -61,8 +61,8 @@
                 <legend class="border-bottom mb-4">Ask James a question...</legend>
                 {{ question_form|as_bootstrap }}
             </fieldset>
-            <div class="form-group">
-                <button type="submit" class="btn btn-dark">Submit</button>
+            <div class="form-group text-center">
+                <button type="submit" class="btn btn-dark btn-lg">Submit</button>
             </div>
         </form>
     </div>

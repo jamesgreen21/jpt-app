@@ -10,21 +10,25 @@
 
 <!--JPT Promo Banner-->
 {% if user.is_authenticated %}
-<a href="{% url 'user-register' %}">
-    <div class="row bg-jpt-teal text-jpt-white jpt-promo-primary">
-        <div class="col-12">
-            <div class="jpt-promo-heading">
-                <h2 class="jpt-promo">Book a session today!</h2>
+<a href="{% url 'products' %}">
+    <div class="bg-jpt-black bg-jpt-teal text-jpt-white jpt-promo-primary">
+        <div class="row">
+            <div class="col-12">
+                <div class="jpt-promo-heading">
+                    <h2 class="jpt-promo">Book a session today!</h2>
+                </div>
             </div>
         </div>
     </div>
 </a>
 {% else %}
 <a href="{% url 'user-register' %}">
-    <div class="row bg-jpt-teal text-jpt-white jpt-promo-primary">
-        <div class="col-12">
-            <div class="jpt-promo-heading">
-                <h2 class="jpt-promo">Sign up today!</h2>
+    <div class="bg-jpt-black bg-jpt-teal text-jpt-white jpt-promo-primary">
+        <div class="row">
+            <div class="col-12">
+                <div class="jpt-promo-heading">
+                    <h2 class="jpt-promo">Sign up today!</h2>
+                </div>
             </div>
         </div>
     </div>
@@ -51,8 +55,8 @@
     <div id="carousel-link" class="carousel-inner jpt-carousel-container">
         <div class="carousel-item active">
             <a href="{% url 'user-register' %}">
-                <img class="d-block w-100" src="{% static 'img/jpt-car-deadlift.jpg' %}" alt="First slide">
-                <div class="carousel-caption d-none d-md-block jpt-carousel">
+                <img class="d-block" src="{% static 'img/jpt-car-deadlift.jpg' %}" alt="First slide">
+                <div class="carousel-caption jpt-carousel">
                     <h2 class="text-jpt-white">Join Today!</h2>
                     <h3 class="text-jpt-red">Gain full access to the site</h3>
                 </div>
@@ -60,8 +64,8 @@
         </div>
         <div class="carousel-item">
             <a href="{% url 'products' %}">
-                <img class="d-block w-100" src="{% static 'img/jpt-dumbbells.jpg' %}" alt="Second slide">
-                <div class="carousel-caption d-none d-md-block jpt-carousel">
+                <img class="d-block" src="{% static 'img/jpt-dumbbells.jpg' %}" alt="Second slide">
+                <div class="carousel-caption jpt-carousel">
                     <h2 class="text-jpt-white">Book Now!</h2>
                     <h3 class="text-jpt-red">Get a Personal Training session today...</h3>
                 </div>
@@ -69,11 +73,11 @@
         </div>
         <div class="carousel-item">
             <a href="{% url 'jpt-blogs' %}">
-            <img class="d-block w-100" src="{% static 'img/jpt-meal-prep.jpg' %}" alt="Third slide">
-            <div class="carousel-caption d-none d-md-block jpt-carousel">
-                <h2 class="text-jpt-white">Healthy Blog</h2>
-                <h3 class="text-jpt-red">Check out James' blog...</h3>
-            </div>
+                <img class="d-block" src="{% static 'img/jpt-meal-prep.jpg' %}" alt="Third slide">
+                <div class="carousel-caption jpt-carousel">
+                    <h2 class="text-jpt-white">Healthy Blog</h2>
+                    <h3 class="text-jpt-red">Check out James' blog...</h3>
+                </div>
             </a>
         </div>
     </div>
@@ -89,46 +93,66 @@
 
 <!--JPT Promo2 Banner-->
 <a href="{% url 'jpt-blogs' %}">
-    <div class="row bg-jpt-teal text-jpt-white jpt-promo-primary">
-        <div class="col-12">
-            <div class="jpt-promo-heading">
-                <h2 class="jpt-promo">healthy blogs here!</h2>
+    <div class="bg-jpt-black bg-jpt-teal text-jpt-white jpt-promo-primary">
+        <div class="row">
+            <div class="col-12">
+                <div class="jpt-promo-heading">
+                    <h2 class="jpt-promo">Healthy Blogs Here!</h2>
+                </div>
             </div>
         </div>
     </div>
 </a>
+
+<!--Benefits Banner-->
+<div class="bg-jpt-black text-jpt-red">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="jpt-banner">Key Benefits</h2>
+        </div>
+    </div>
+</div>
 
 <!--Benefits & Image Section-->
 <div class="parallax" style="background-image: url({% static 'img/jpt-spinning.jpg' %}">
     <div class="text-center bg-jpt-darkimage">
         <h5 class="jpt-text text-jpt-white">high energy and motivation</h5>
         <h5 class="jpt-text text-jpt-white">home visits, your place or mine</h5>
-        <h5 class="jpt-text text-jpt-white">meal plans and exptert nutritonal advice</h5>
+        <h5 class="jpt-text text-jpt-white">meal planning</h5>
+        <h5 class="jpt-text text-jpt-white">mexptert nutritonal advice</h5>
     </div>
 </div>
 
-<!--JPT Promo Banner-->
-{% if user.is_authenticated %}
-<a href="{% url 'user-register' %}">
-    <div class="row bg-jpt-teal text-jpt-white jpt-promo-primary">
-        <div class="col-12">
-            <div class="jpt-promo-heading">
-                <h2 class="jpt-promo">Book a session today!</h2>
+<!--JPT Promo2 Banner-->
+<a href="{% url 'products' %}">
+    <div class="bg-jpt-black bg-jpt-teal text-jpt-white jpt-promo-primary">
+        <div class="row">
+            <div class="col-12">
+                <div class="jpt-promo-heading">
+                    <h2 class="jpt-promo">Book a session today!</h2>
+                </div>
             </div>
         </div>
     </div>
 </a>
-{% else %}
-<a href="{% url 'user-register' %}">
-    <div class="row bg-jpt-teal text-jpt-white jpt-promo-primary">
+
+<!--Bio Banner-->
+<div class="bg-jpt-black text-jpt-red">
+    <div class="row">
         <div class="col-12">
-            <div class="jpt-promo-heading">
-                <h2 class="jpt-promo">Sign up today!</h2>
-            </div>
+            <h2 class="jpt-banner">Meet James</h2>
         </div>
     </div>
-</a>
-{% endif %}
+</div>
+
+<!--Bio Image Section-->
+<div class="parallax" style="background-image: url({% static 'img/jpt-gym.jpg' %}">
+    <div class="text-center text-jpt-white bg-jpt-darkimage jpt-section">
+        <img class="rounded-circle jpt-section-img" src="{% static 'img/jpt-bio-pic.jpg' %}" alt="Image not found">
+        <h3 class="">James Green</h3>
+        <h6 class="text-jpt-red">Personal Trainer</h6>
+    </div>
+</div>
 
 <!--JPT Banner-->
 <div class="bg-jpt-black text-jpt-white">
@@ -140,29 +164,11 @@
     </div>
 </div>
 
-<!--Bio Image Section-->
-<div class="parallax" style="background-image: url({% static 'img/jpt-gym.jpg' %}">
-    <div class="text-center text-jpt-white bg-jpt-darkimage jpt-section-img">
-        <img class="rounded-circle jpt-section1-img" src="{% static 'img/jpt-bio-pic.jpg' %}" alt="Image not found">
-        <h3 class="">James Green</h3>
-        <h6 class="text-jpt-red">Personal Trainer</h6>
-    </div>
-</div>
-
-<!--Bio Banner-->
-<div class="bg-jpt-black text-jpt-red">
-    <div class="row">
-        <div class="col-12">
-            <h2 class="jpt-banner">Meet James</h2>
-        </div>
-    </div>
-</div>
-
 <!--Bio Section-->
 <div class="bg-jpt-black text-jpt-white jpt-bio-container">
     <div class="row">
-        <div class="col-4 offset-1 jpt-bio-img" style="background-image: url({% static 'img/jpt-bio-lg.png' %}"></div>
-        <div class="offset-1 col-5 jpt-bio-content">
+        <div class="col-10 offset-1 col-lg-4 offset-lg-1 jpt-bio-img" style="background-image: url({% static 'img/jpt-bio-lg.png' %}"></div>
+        <div class="col-10 offset-1 col-lg-6 jpt-bio-content">
             <p class="py-2">Hi everyone, my name is James Green and I have been <span class="text-jpt-red">Personal Training for 10 years</span> now and have a wealth of experience and knowledge</h5>
                 <p class="py-2">I combine my boxing and conditioning knowledge with weight and strength training to give you a great blend and range of exercise plans to combat any goal.</p>
                 <p class="py-2">I have <span class="text-jpt-red">6 years training and competing as an Amateur Boxing</span> during my teens and early twenties, where I built my conditioning knowledge. During this time I was also competing on track and distance running,
@@ -175,10 +181,12 @@
 
 <!--JPT Promo3 Banner-->
 <a href="{% url 'user-register' %}">
-    <div class="row bg-jpt-teal text-jpt-white jpt-promo-primary">
-        <div class="col-12">
-            <div class="jpt-promo-heading">
-                <h2 class="jpt-promo">Book a session today!</h2>
+    <div class="bg-jpt-black bg-jpt-teal text-jpt-white jpt-promo-primary">
+        <div class="row">
+            <div class="col-12">
+                <div class="jpt-promo-heading">
+                    <h2 class="jpt-promo">Sign up today!</h2>
+                </div>
             </div>
         </div>
     </div>
