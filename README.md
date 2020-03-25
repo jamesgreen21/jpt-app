@@ -3,12 +3,20 @@
 A website app for Joseph Paris, Personal Training, in which users can read about Joe, get useful hints and tips, register as a user and book PT sessions
 
 #### Project Details @CodeInstitute
+The temporary superuser username and password is "admin" and "Test123!" to test the admin features.
+
 The app gives the user access to the home page where the user can read all the benefits available on the app with advertising throughout to catch the user’s attention and increase traffic
+
 Authentication is used to control user access throughout the site. In this first release, the users will be able to sign up for free to gain access to the content, but the plan in a future release will be to include membership payments with this feature.
+
 Once a user has an account they can view their profile, update their details and change their picture.
+
 The user can view the Blog posts that can be updated by the Admin user, with ability to add, edit and delete blog posts. The user can also post questions to the app. This can be answered by the Admin user, who can choose to star the message so that it appears on the Blog page. 
+
 The user can also user the Search app functionality built in to find a question already answered on the Blog app. This feature ignores the starred messages set by the Admin and instead searches all messages.
+
 Finally, the user can access the PT & Products app, which allows the user to purchase “session tokens”, a way of storing PT sessions that you can then book through the app (coming soon). The user can buy any number of these tokens and is rewarded for buying more tokens by a lower £/session rate. Once a token is purchased it appears next to you username in the navbar and on the Profile page. The profile page links back to the Products app
+
 The user can also purchase products available such as gym equipment, sportswear, etc. All the products are completely editable in the Admin Edit Mode.
 
 ##### Coming Soon
@@ -106,6 +114,7 @@ A big thank you to the following:
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
 Please make sure to update tests as appropriate.
 
 ## License

@@ -11,6 +11,9 @@ from .forms import (
 
 
 def register(request):
+    """
+    Returns a view that renders the register page and form
+    """
     if request.method == 'POST':
         user_form = UserRegisterForm(request.POST, instance=request.user)
         profile_form = ProfileRegisterForm(
@@ -37,6 +40,9 @@ def register(request):
 
 @login_required
 def profile(request):
+    """
+    Returns a view that renders the profile page and form
+    """
     if request.method == 'POST':
         user_form = UserUpdateForm(request.POST, instance=request.user)
         profile_form = ProfileRegisterForm(

@@ -5,6 +5,9 @@ from .models import Profile
 
 
 class UserRegisterForm(UserCreationForm):
+    """
+    Returns a form regsiter form
+    """
     email = forms.EmailField()
     
     class Meta:
@@ -20,12 +23,18 @@ class UserRegisterForm(UserCreationForm):
 
 
 class ProfileRegisterForm(forms.ModelForm):
+    """
+    Returns a form regsiter form
+    """
     class Meta:
         model = Profile
         fields = ['image', 'gender', 'address1', 'address2', 'city', 'postcode']
 
 
 class UserUpdateForm(forms.ModelForm):
+    """
+    Returns a form update profile form
+    """
     email = forms.EmailField()
     
     class Meta:

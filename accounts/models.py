@@ -4,6 +4,9 @@ from PIL import Image
 
 
 class Profile(models.Model):
+    """
+    A Profile model that extends the User model in django auth
+    """
     GENDER_CHOICE = (
         ('Male', 'Male'),
         ('Female', 'Female'),

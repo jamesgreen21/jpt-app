@@ -3,7 +3,9 @@ from .models import Order
 
 
 class MakePaymentForm(forms.Form):
-
+    """
+    Returns a form payment form
+    """
     MONTH_CHOICES = [(i, i) for i in range(1, 13)]
     YEAR_CHOICES = [(i, i) for i in range(2020, 2036)]
 
