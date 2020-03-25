@@ -744,9 +744,6 @@ p {
 /*// Medium devices (tablets, 768px and up)*/
 
 @media (min-width: 768px) {
-    .footer-banner-link {
-        transform: scale(1.5);
-    }
     .footer-banner h2 {
         font-size: 30px;
         text-align: left;
@@ -779,7 +776,7 @@ p {
         font-size: 30px;
     }
     .footer-banner-link {
-        transform: scale(2);
+        transform: scale(1.5);
     }
 }
 
@@ -810,7 +807,6 @@ p {
         padding-top: 75px;
         font-size: 50px;
         line-height: 50px;
-        font-weight: 600;
     }
     .jpt-img-card {
         width: 50%;

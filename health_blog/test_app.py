@@ -7,4 +7,3 @@ class TestHealthBlogConfig(TestCase):
 
     def test_pass(self):
         self.assertEqual(200, 200)
-   
