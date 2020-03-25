@@ -3,6 +3,11 @@ from django.contrib import messages
 
 
 def index(request):
+    """
+    App home page with full detail and links for the JPT App
+    Includes a user_feedback dict which would be transformed to a model
+    in the second release
+    """
     user_feedback = [
         {        
             'name': 'Ashleigh',
@@ -23,3 +28,15 @@ def index(request):
         'user_feedback': user_feedback
     }
     return render(request, 'index.html', context)
+
+
+def book_a_session(request):
+    """
+    App Book a Session placeholder page while the Book app is under 
+    development
+    """
+    context = {
+        'title': 'Book a Session',
+        'nbar': 'book',
+    }
+    return render(request, 'book.html', context)

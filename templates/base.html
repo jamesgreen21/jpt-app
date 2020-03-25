@@ -33,6 +33,9 @@
                     <a class="nav-link {% if nbar == 'home' %}jpt-nav-active{% endif %}" href="{% url 'home' %}">Home</a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link {% if nbar == 'book' %}jpt-nav-active{% endif %}" href="{% url 'book' %}">Book a Session</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link {% if nbar == 'blog' %}jpt-nav-active{% endif %}" href="{% url 'jpt-blogs' %}">Health & Well-being Blog</a>
                 </li>
                 <li class="nav-item">
@@ -104,12 +107,12 @@
 
     <!--JPT Footer Banner-->
     <div class="container-fluid">
-        <div class="bg-jpt-teal text-jpt-black footer-banner">
+        <div class="bg-jpt-teal text-jpt-white footer-banner">
             <div class="row">
-                <div class="col 10 col-md-7 offset-1">
+                <div class="col-10 col-md-8 offset-1 py-3">
                     <h2>Hang on! Join now, get a free PT session</h2>
                 </div>
-                <div class="col 10 col-md-3 text-right">
+                <div class="col-12 col-md-3 py-3 footer-banner-link">
                     <a class="btn btn-outline-light btn-lg" type="button" href="{% url 'user-register' %}">JOIN</a>
                 </div>
             </div>

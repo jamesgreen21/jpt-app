@@ -1,0 +1,21 @@
+{% extends 'base.html' %} {% load static %} {% block content %}
+
+<!--Header and Image-->
+<div class="parallax" style="background-image: url('https://wallup.net/wp-content/uploads/2018/09/30/457763-coming-soon-sign-text-coming-soon.jpg')">
+    <div class="text-center text-jpt-white bg-jpt-darkimage jpt-page-header">
+        <h5 class="">Book a Session</h5>
+    </div>
+</div>
+
+<!--Coming soon placeholder-->
+<div class="row bg-jpt-black">
+    <div class="col-10 offset-1 text-jpt-white text-center py-4 quick-link">
+        <h2>This page is coming soon!</h2>
+        <div class="border-top pt-3">
+            <a class="jpt-link-red" href="{% url 'home' %}">Back to Home</a>
+        </div>
+    </div>
+</div>
+
+
+{% endblock content %}

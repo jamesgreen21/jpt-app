@@ -332,9 +332,16 @@ p {
 }
 
 .footer-banner h2 {
-    font-size: 40px;
-    font-weight: 800;
+    font-size: 25px;
+    font-weight: 500;
     font-family: 'Open Sans';
+    text-align: center;
+}
+
+
+.footer-banner-link {
+    text-align: center;
+    transform: scale(1.5);
 }
 
 /* --------------------------------------------------------------------------------- */
@@ -716,6 +723,14 @@ p {
     background-color: #de0000;
 }
 
+.quick-link h2 {
+    font-size: 40px;
+}
+
+.quick-link a {
+    font-size: 25px;
+}
+
 /*----------------------------------- Footer -------------------------------------*/
 
 /*// Extra small devices (portrait phones, less than 576px)*/
@@ -728,7 +743,15 @@ p {
 
 /*// Medium devices (tablets, 768px and up)*/
 
-@media (min-width: 768px) {}
+@media (min-width: 768px) {
+    .footer-banner-link {
+        transform: scale(1.5);
+    }
+    .footer-banner h2 {
+        font-size: 30px;
+        text-align: left;
+    }
+}
 
 /*// Large devices (desktops, 992px and up)*/
 
@@ -747,6 +770,16 @@ p {
         font-size: 30px;
         font-weight: 200;
         letter-spacing: 10px;
+    }
+
+    .quick-link h2 {
+        font-size: 50px;
+    }
+    .quick-link a {
+        font-size: 30px;
+    }
+    .footer-banner-link {
+        transform: scale(2);
     }
 }
 
